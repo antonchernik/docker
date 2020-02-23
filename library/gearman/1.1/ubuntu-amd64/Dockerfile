@@ -1,4 +1,4 @@
-FROM antonchernik/ubuntu:latest
+FROM antonchernik/ubuntu:18.04.4
 
 RUN \
   apt-get update && \

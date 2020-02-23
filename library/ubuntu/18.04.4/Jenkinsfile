@@ -12,8 +12,8 @@ pipeline {
         DOCKER_REGISTRY="docker.io/antonchernik/"
         GIT_CREDENTIALS_ID="github_antonchernik_ssh"
         DOCKER_CREDENTIALS_ID="docker-antonchernik"
-        DOCKER_IMAGE="ubuntu"
-        DOCKER_IMAGE_VERSION="18.04.4"
+        IMAGE_NAME="ubuntu"
+        IMAGE_VERSION="18.04.4"
     }
     stages {
         stage('Checkout') {
@@ -30,18 +30,18 @@ pipeline {
             steps {
 
                 sh(returnStdout: true, script: "wget -O ubuntu-bionic-core-cloudimg-amd64-root.tar.gz https://partner-images.canonical.com/core/bionic/current/ubuntu-bionic-core-cloudimg-amd64-root.tar.gz")
-                sh(returnStdout: true, script: "docker build -f library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/Dockerfile -t ${DOCKER_REGISTRY}${DOCKER_IMAGE}:${DOCKER_IMAGE_VERSION}.${env.BUILD_ID} .")
+                sh(returnStdout: true, script: "docker build -f library/${IMAGE_NAME}/${IMAGE_VERSION}/Dockerfile -t ${DOCKER_REGISTRY}${IMAGE_NAME}:${IMAGE_VERSION} .")
             }
         }
         stage('Image vulnerabilities check') {
             steps {
                 script {
-                    sh(returnStdout: true, script: "trivy --output library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/trivy.txt ${DOCKER_REGISTRY}${DOCKER_IMAGE}:${DOCKER_IMAGE_VERSION}.${env.BUILD_ID} || true")
+                    sh(returnStdout: true, script: "trivy --output library/${IMAGE_NAME}/${IMAGE_VERSION}/trivy.txt ${DOCKER_REGISTRY}${IMAGE_NAME}:${IMAGE_VERSION} || true")
                     publishHTML([
                     	allowMissing: false,
                     	alwaysLinkToLastBuild: false,
                     	keepAll: false,
-                    	reportDir: "library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}",
+                    	reportDir: "library/${IMAGE_NAME}/${IMAGE_VERSION}",
                     	reportFiles: 'trivy.txt',
                     	reportName: 'Trivy Report',
                     	reportTitles: ''
@@ -52,23 +52,23 @@ pipeline {
         stage('Push image') {
             steps {
                 withDockerRegistry([ credentialsId: DOCKER_CREDENTIALS_ID, url: "" ]) {
-                    sh(returnStdout: true, script: "docker push ${DOCKER_REGISTRY}${DOCKER_IMAGE}:${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}")
-                    sh(returnStdout: true, script: "docker tag ${DOCKER_REGISTRY}${DOCKER_IMAGE}:${DOCKER_IMAGE_VERSION}.${env.BUILD_ID} ${DOCKER_REGISTRY}${DOCKER_IMAGE}:latest")
-                    sh(returnStdout: true, script: "docker push ${DOCKER_REGISTRY}${DOCKER_IMAGE}:latest")
+                    sh(returnStdout: true, script: "docker push ${DOCKER_REGISTRY}${IMAGE_NAME}:${IMAGE_VERSION}")
+                    sh(returnStdout: true, script: "docker tag ${DOCKER_REGISTRY}${IMAGE_NAME}:${IMAGE_VERSION} ${DOCKER_REGISTRY}${IMAGE_NAME}:latest")
+                    sh(returnStdout: true, script: "docker push ${DOCKER_REGISTRY}${IMAGE_NAME}:latest")
                 }
 
             }
         }
         stage('Cleanup') {
             steps {
-                sh(returnStdout: true, script: "docker rmi ${DOCKER_REGISTRY}${DOCKER_IMAGE}:${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}")
-                sh(returnStdout: true, script: "docker rmi ${DOCKER_REGISTRY}${DOCKER_IMAGE}:latest")
+                sh(returnStdout: true, script: "docker rmi ${DOCKER_REGISTRY}${IMAGE_NAME}:${IMAGE_VERSION}")
+                sh(returnStdout: true, script: "docker rmi ${DOCKER_REGISTRY}${IMAGE_NAME}:latest")
             }
         }
         stage('Update readme') {
             steps {
                 script {
-                    GIT_URL_TAG="sed -i 's~<br/>~"+"<br/>" + "* ${DOCKER_IMAGE_VERSION}.${env.BUILD_ID} "+"Dockerfile [(library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/Dockerfile)]("+"https://github.com/antonchernik/docker/blob/${DOCKER_IMAGE}-v${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}/library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/Dockerfile)"+"<br />"+"Trivy security report [(bionic/trivy.txt)]("+"https://github.com/antonchernik/docker/blob/${DOCKER_IMAGE}-v${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}/library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/trivy.txt)"+"<br />"+"~g' library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/README.md"
+                    GIT_URL_TAG="sed -i 's~<br/>~"+"<br/>" + "* ${IMAGE_VERSION} "+"Dockerfile [(library/${IMAGE_NAME}/${IMAGE_VERSION}/Dockerfile)]("+"https://github.com/antonchernik/docker/blob/${IMAGE_NAME}-v${IMAGE_VERSION}/library/${IMAGE_NAME}/${IMAGE_VERSION}/Dockerfile)"+"<br />"+"Trivy security report [(bionic/trivy.txt)]("+"https://github.com/antonchernik/docker/blob/${IMAGE_NAME}-v${IMAGE_VERSION}/library/${IMAGE_NAME}/${IMAGE_VERSION}/trivy.txt)"+"<br />"+"~g' library/${IMAGE_NAME}/${IMAGE_VERSION}/README.md"
                 }
                 sh(returnStdout: true, script: GIT_URL_TAG)
 
@@ -80,8 +80,8 @@ pipeline {
                     sh(returnStdout: true, script:'git config --global user.email "anton.chernik@gmail.com"')
                     sh(returnStdout: true, script:'git config --global user.name "Anton Chernik"')
                     sh(returnStdout: true, script:'git add --all')
-                    sh(returnStdout: true, script:'git commit -am "Build ${DOCKER_IMAGE}:${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}"')
-                    sh(returnStdout: true, script:"git tag -a ${DOCKER_IMAGE}-v${DOCKER_IMAGE_VERSION}.${env.BUILD_ID} -m 'Build ${DOCKER_IMAGE}:${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}'")
+                    sh(returnStdout: true, script:'git commit -am "Build ${IMAGE_NAME}:${IMAGE_VERSION}"')
+                    sh(returnStdout: true, script:"git tag -a ${IMAGE_NAME}-v${IMAGE_VERSION} -m 'Build ${IMAGE_NAME}:${IMAGE_VERSION}'")
                     sh(returnStdout: true, script:'git push origin master --tags')
                 }
             }
