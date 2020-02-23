@@ -68,7 +68,7 @@ pipeline {
         stage('Update readme') {
             steps {
                 script {
-                    GIT_URL_TAG="sed -i 's~<br/>~"+"<br/>" + "* ${DOCKER_IMAGE_VERSION}.${env.BUILD_ID} "+"Dockerfile [(bionic/Dockerfile)]("+"https://github.com/antonchernik/docker/blob/${DOCKER_IMAGE}-v${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}/library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/Dockerfile)"+"<br />"+"Trivy security report [(bionic/trivy.txt)]("+"https://github.com/antonchernik/docker/blob/${DOCKER_IMAGE}-v${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}/library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/trivy.txt)"+"<br />"+"~g' library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/README.md"
+                    GIT_URL_TAG="sed -i 's~<br/>~"+"<br/>" + "* ${DOCKER_IMAGE_VERSION}.${env.BUILD_ID} "+"Dockerfile [(library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/Dockerfile)]("+"https://github.com/antonchernik/docker/blob/${DOCKER_IMAGE}-v${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}/library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/Dockerfile)"+"<br />"+"Trivy security report [(bionic/trivy.txt)]("+"https://github.com/antonchernik/docker/blob/${DOCKER_IMAGE}-v${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}/library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/trivy.txt)"+"<br />"+"~g' library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/README.md"
                 }
                 sh(returnStdout: true, script: GIT_URL_TAG)
 
@@ -80,7 +80,7 @@ pipeline {
                     sh(returnStdout: true, script:'git config --global user.email "anton.chernik@gmail.com"')
                     sh(returnStdout: true, script:'git config --global user.name "Anton Chernik"')
                     sh(returnStdout: true, script:'git add --all')
-                    sh(returnStdout: true, script:'git commit -am "Update trivy report"')
+                    sh(returnStdout: true, script:'git commit -am "Build ${DOCKER_IMAGE}:${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}"')
                     sh(returnStdout: true, script:"git tag -a ${DOCKER_IMAGE}-v${DOCKER_IMAGE_VERSION}.${env.BUILD_ID} -m 'Build ${DOCKER_IMAGE}:${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}'")
                     sh(returnStdout: true, script:'git push origin master --tags')
                 }
