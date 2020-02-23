@@ -86,15 +86,6 @@ RUN set -x \
 		&& rm -rf "$tempDir" /etc/apt/sources.list.d/temp.list; \
 	fi
 
-RUN bash -c 'mkdir -p /etc/nginx/{sites-enabled,sites-available,certs}'
-RUN rm -f /etc/nginx/conf.d/default.conf
-COPY ./etc/nginx/sites-enabled/localhost.conf /etc/nginx/sites-enabled/localhost.conf
-COPY ./etc/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY ./etc/nginx/mime.types /etc/nginx/mime.types
-COPY ./etc/nginx/fastcgi_params /etc/nginx/fastcgi_params
-
-COPY ./etc/nginx/snippets/standart-service-params.conf /etc/nginx/snippets/standart-service-params.conf
-
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
