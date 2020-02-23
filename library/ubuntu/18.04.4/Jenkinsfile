@@ -68,7 +68,7 @@ pipeline {
         stage('Update readme') {
             steps {
                 script {
-                    GIT_URL_TAG="sed -i 's~<br/>~"+"<br/>" + "* ${DOCKER_IMAGE_VERSION}.${env.BUILD_ID} "+"Dockerfile [(bionic/Dockerfile)]("+"https://github.com/antonchernik/docker/blob/${DOCKER_IMAGE}-v${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}/library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/Dockerfile)"+"<br />"+"Trivy security report [(bionic/trivy.txt)]("+"https://github.com/antonchernik/docker/blob/${DOCKER_IMAGE}-v${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}/library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/trivy.txt)"+"<br />"+"~g' README.md"
+                    GIT_URL_TAG="sed -i 's~<br/>~"+"<br/>" + "* ${DOCKER_IMAGE_VERSION}.${env.BUILD_ID} "+"Dockerfile [(bionic/Dockerfile)]("+"https://github.com/antonchernik/docker/blob/${DOCKER_IMAGE}-v${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}/library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/Dockerfile)"+"<br />"+"Trivy security report [(bionic/trivy.txt)]("+"https://github.com/antonchernik/docker/blob/${DOCKER_IMAGE}-v${DOCKER_IMAGE_VERSION}.${env.BUILD_ID}/library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/trivy.txt)"+"<br />"+"~g' library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}/README.md"
                 }
                 sh(returnStdout: true, script: GIT_URL_TAG)
 
