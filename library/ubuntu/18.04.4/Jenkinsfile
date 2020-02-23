@@ -41,7 +41,7 @@ pipeline {
                     	allowMissing: false,
                     	alwaysLinkToLastBuild: false,
                     	keepAll: false,
-                    	reportDir: 'bionic',
+                    	reportDir: "library/${DOCKER_IMAGE}/${DOCKER_IMAGE_VERSION}",
                     	reportFiles: 'trivy.txt',
                     	reportName: 'Trivy Report',
                     	reportTitles: ''

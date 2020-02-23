@@ -1,7 +1,8 @@
 # Ubuntu
-[![](https://images.microbadger.com/badges/image/antonchernik/docker-image-ubuntu.svg)](https://microbadger.com/images/antonchernik/docker-image-ubuntu "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/antonchernik/ubuntu.svg)](https://microbadger.com/images/antonchernik/ubuntu "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/antonchernik/ubuntu.svg)](https://microbadger.com/images/antonchernik/ubuntu "Get your own version badge on microbadger.com")
 ### Supported tags and respective Dockerfile links
-<br/>* 18.04.4.62 Dockerfile [(bionic/Dockerfile)](https://github.com/antonchernik/docker/blob/ubuntu-v18.04.4.62/library/ubuntu/18.04.4/Dockerfile)<br />Trivy security report [(bionic/trivy.txt)](https://github.com/antonchernik/docker/blob/ubuntu-v18.04.4.62/library/ubuntu/18.04.4/trivy.txt)<br />
+<br/>
   Locale: en_US.UTF-8
   
   Time zone: UTC
