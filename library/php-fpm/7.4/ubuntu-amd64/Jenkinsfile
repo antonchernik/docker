@@ -14,8 +14,8 @@ pipeline {
         DOCKER_CREDENTIALS_ID="docker-antonchernik"
         IMAGE_OS="ubuntu"
         IMAGE_ARCHITECTURE="amd64"
-        IMAGE_NAME="gearman"
-        IMAGE_VERSION="1.1"
+        IMAGE_NAME="php-fpm"
+        IMAGE_VERSION="7.4"
     }
     stages {
         stage('Checkout') {
