@@ -4,6 +4,8 @@ RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install  -y \
         libgearman-dev \
+        git \
+        unzip \
     --no-install-recommends
 
 
