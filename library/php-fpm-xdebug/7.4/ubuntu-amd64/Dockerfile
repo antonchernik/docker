@@ -14,8 +14,7 @@ RUN pecl install xdebug-2.9.2 \
 
 RUN \
     cd /tmp && \
-    git clone https://github.com/wcgallego/pecl-gearman.git && \
-    cd pecl-gearman && \
+    git clone https://github.com/php/pecl-networking-gearman.git && \
     phpize && \
     ./configure && \
     make && make install && \
