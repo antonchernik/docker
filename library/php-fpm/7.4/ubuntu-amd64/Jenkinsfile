@@ -16,7 +16,7 @@ pipeline {
         IMAGE_ARCHITECTURE="amd64"
         IMAGE_NAME="php-fpm"
         IMAGE_VERSION="7.4"
-        IMAGE_FULL_VERSION="7.4.3"
+        IMAGE_FULL_VERSION="7.4.5"
     }
     stages {
         stage('Checkout') {
