@@ -52,6 +52,14 @@
 |                           | CVE-2018-12700   |          |                          |               | binutils: Stack Exhaustion in                    |
 |                           |                  |          |                          |               | debug_write_type in debug.c                      |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-12934   |          |                          |               | binutils: Uncontrolled                           |
+|                           |                  |          |                          |               | Resource Consumption in                          |
+|                           |                  |          |                          |               | remember_Ktype in cplus-dem.c                    |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-13033   |          |                          |               | binutils: Uncontrolled                           |
+|                           |                  |          |                          |               | Resource Consumption in                          |
+|                           |                  |          |                          |               | execution of nm                                  |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-17358   |          |                          |               | binutils: invalid memory access in               |
 |                           |                  |          |                          |               | _bfd_stab_section_find_nearest_line              |
 |                           |                  |          |                          |               | in syms.c                                        |
@@ -75,6 +83,10 @@
 |                           | CVE-2018-18309   |          |                          |               | binutils: invalid memory                         |
 |                           |                  |          |                          |               | address dereference in                           |
 |                           |                  |          |                          |               | read_reloc in reloc.c                            |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-18483   |          |                          |               | binutils: Integer overflow in                    |
+|                           |                  |          |                          |               | cplus-dem.c:get_count() allows                   |
+|                           |                  |          |                          |               | for denial of service                            |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-18484   |          |                          |               | binutils: Stack exhaustion                       |
 |                           |                  |          |                          |               | in cp-demangle.c allows for                      |
@@ -121,6 +133,9 @@
 |                           |                  |          |                          |               | _bfd_generic_read_minisymbols                    |
 |                           |                  |          |                          |               | function in syms.c                               |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-20623   |          |                          |               | binutils: Use-after-free in                      |
+|                           |                  |          |                          |               | the error function                               |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-20651   |          |                          |               | binutils: NULL                                   |
 |                           |                  |          |                          |               | pointer dereference in                           |
 |                           |                  |          |                          |               | elf_link_add_object_symbols                      |
@@ -130,6 +145,9 @@
 |                           | CVE-2018-20671   |          |                          |               | binutils: Integer overflow in                    |
 |                           |                  |          |                          |               | load_specific_debug_section                      |
 |                           |                  |          |                          |               | function                                         |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-20673   |          |                          |               | libiberty: Integer overflow in                   |
+|                           |                  |          |                          |               | demangle_template() function                     |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-8945    |          |                          |               | binutils: Crash in                               |
 |                           |                  |          |                          |               | elf.c:bfd_section_from_shdr()                    |
@@ -144,8 +162,49 @@
 |                           |                  |          |                          |               | libiberty/cplus-dem.c causes                     |
 |                           |                  |          |                          |               | crash                                            |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-1010204 |          |                          |               | binutils: Improper Input                         |
+|                           |                  |          |                          |               | Validation, Signed/Unsigned                      |
+|                           |                  |          |                          |               | Comparison, Out-of-bounds                        |
+|                           |                  |          |                          |               | Read in gold/fileread.cc and                     |
+|                           |                  |          |                          |               | elfcpp/elfcpp_file.h...                          |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-12972   |          |                          |               | An issue was discovered in the                   |
+|                           |                  |          |                          |               | Binary File Descriptor (BFD)                     |
+|                           |                  |          |                          |               | library (aka...                                  |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-14250   |          |                          |               | binutils: integer overflow in                    |
+|                           |                  |          |                          |               | simple-object-elf.c leads to a                   |
+|                           |                  |          |                          |               | heap-based buffer overflow                       |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2019-14444   |          |                          |               | binutils: integer overflow in                    |
 |                           |                  |          |                          |               | function apply_relocation in                     |
+|                           |                  |          |                          |               | readelf.c                                        |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-17450   |          |                          |               | binutils: denial of service                      |
+|                           |                  |          |                          |               | via crafted ELF file                             |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-17451   |          |                          |               | binutils: integer overflow                       |
+|                           |                  |          |                          |               | leading to a SEGV in                             |
+|                           |                  |          |                          |               | _bfd_dwarf2_find_nearest_line                    |
+|                           |                  |          |                          |               | in dwarf2.c                                      |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9073    |          |                          |               | binutils: excessive memory                       |
+|                           |                  |          |                          |               | allocation in function                           |
+|                           |                  |          |                          |               | _bfd_elf_slurp_version_tables                    |
+|                           |                  |          |                          |               | in elf.c                                         |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9074    |          |                          |               | binutils: out-of-bound read                      |
+|                           |                  |          |                          |               | in function bfd_getl32 in                        |
+|                           |                  |          |                          |               | libbfd.c                                         |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9075    |          |                          |               | binutils: heap-based                             |
+|                           |                  |          |                          |               | buffer overflow in function                      |
+|                           |                  |          |                          |               | _bfd_archive_64_bit_slurp_armap                  |
+|                           |                  |          |                          |               | in archive64.c                                   |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9077    |          |                          |               | binutils: heap-based                             |
+|                           |                  |          |                          |               | buffer overflow in function                      |
+|                           |                  |          |                          |               | process_mips_specific in                         |
 |                           |                  |          |                          |               | readelf.c                                        |
 +---------------------------+------------------+----------+                          +---------------+--------------------------------------------------+
 | binutils-common           | CVE-2017-13716   | HIGH     |                          |               | binutils: Memory leak with the                   |
@@ -195,6 +254,14 @@
 |                           | CVE-2018-12700   |          |                          |               | binutils: Stack Exhaustion in                    |
 |                           |                  |          |                          |               | debug_write_type in debug.c                      |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-12934   |          |                          |               | binutils: Uncontrolled                           |
+|                           |                  |          |                          |               | Resource Consumption in                          |
+|                           |                  |          |                          |               | remember_Ktype in cplus-dem.c                    |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-13033   |          |                          |               | binutils: Uncontrolled                           |
+|                           |                  |          |                          |               | Resource Consumption in                          |
+|                           |                  |          |                          |               | execution of nm                                  |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-17358   |          |                          |               | binutils: invalid memory access in               |
 |                           |                  |          |                          |               | _bfd_stab_section_find_nearest_line              |
 |                           |                  |          |                          |               | in syms.c                                        |
@@ -218,6 +285,10 @@
 |                           | CVE-2018-18309   |          |                          |               | binutils: invalid memory                         |
 |                           |                  |          |                          |               | address dereference in                           |
 |                           |                  |          |                          |               | read_reloc in reloc.c                            |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-18483   |          |                          |               | binutils: Integer overflow in                    |
+|                           |                  |          |                          |               | cplus-dem.c:get_count() allows                   |
+|                           |                  |          |                          |               | for denial of service                            |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-18484   |          |                          |               | binutils: Stack exhaustion                       |
 |                           |                  |          |                          |               | in cp-demangle.c allows for                      |
@@ -264,6 +335,9 @@
 |                           |                  |          |                          |               | _bfd_generic_read_minisymbols                    |
 |                           |                  |          |                          |               | function in syms.c                               |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-20623   |          |                          |               | binutils: Use-after-free in                      |
+|                           |                  |          |                          |               | the error function                               |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-20651   |          |                          |               | binutils: NULL                                   |
 |                           |                  |          |                          |               | pointer dereference in                           |
 |                           |                  |          |                          |               | elf_link_add_object_symbols                      |
@@ -273,6 +347,9 @@
 |                           | CVE-2018-20671   |          |                          |               | binutils: Integer overflow in                    |
 |                           |                  |          |                          |               | load_specific_debug_section                      |
 |                           |                  |          |                          |               | function                                         |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-20673   |          |                          |               | libiberty: Integer overflow in                   |
+|                           |                  |          |                          |               | demangle_template() function                     |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-8945    |          |                          |               | binutils: Crash in                               |
 |                           |                  |          |                          |               | elf.c:bfd_section_from_shdr()                    |
@@ -287,8 +364,49 @@
 |                           |                  |          |                          |               | libiberty/cplus-dem.c causes                     |
 |                           |                  |          |                          |               | crash                                            |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-1010204 |          |                          |               | binutils: Improper Input                         |
+|                           |                  |          |                          |               | Validation, Signed/Unsigned                      |
+|                           |                  |          |                          |               | Comparison, Out-of-bounds                        |
+|                           |                  |          |                          |               | Read in gold/fileread.cc and                     |
+|                           |                  |          |                          |               | elfcpp/elfcpp_file.h...                          |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-12972   |          |                          |               | An issue was discovered in the                   |
+|                           |                  |          |                          |               | Binary File Descriptor (BFD)                     |
+|                           |                  |          |                          |               | library (aka...                                  |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-14250   |          |                          |               | binutils: integer overflow in                    |
+|                           |                  |          |                          |               | simple-object-elf.c leads to a                   |
+|                           |                  |          |                          |               | heap-based buffer overflow                       |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2019-14444   |          |                          |               | binutils: integer overflow in                    |
 |                           |                  |          |                          |               | function apply_relocation in                     |
+|                           |                  |          |                          |               | readelf.c                                        |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-17450   |          |                          |               | binutils: denial of service                      |
+|                           |                  |          |                          |               | via crafted ELF file                             |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-17451   |          |                          |               | binutils: integer overflow                       |
+|                           |                  |          |                          |               | leading to a SEGV in                             |
+|                           |                  |          |                          |               | _bfd_dwarf2_find_nearest_line                    |
+|                           |                  |          |                          |               | in dwarf2.c                                      |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9073    |          |                          |               | binutils: excessive memory                       |
+|                           |                  |          |                          |               | allocation in function                           |
+|                           |                  |          |                          |               | _bfd_elf_slurp_version_tables                    |
+|                           |                  |          |                          |               | in elf.c                                         |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9074    |          |                          |               | binutils: out-of-bound read                      |
+|                           |                  |          |                          |               | in function bfd_getl32 in                        |
+|                           |                  |          |                          |               | libbfd.c                                         |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9075    |          |                          |               | binutils: heap-based                             |
+|                           |                  |          |                          |               | buffer overflow in function                      |
+|                           |                  |          |                          |               | _bfd_archive_64_bit_slurp_armap                  |
+|                           |                  |          |                          |               | in archive64.c                                   |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9077    |          |                          |               | binutils: heap-based                             |
+|                           |                  |          |                          |               | buffer overflow in function                      |
+|                           |                  |          |                          |               | process_mips_specific in                         |
 |                           |                  |          |                          |               | readelf.c                                        |
 +---------------------------+------------------+----------+                          +---------------+--------------------------------------------------+
 | binutils-x86-64-linux-gnu | CVE-2017-13716   | HIGH     |                          |               | binutils: Memory leak with the                   |
@@ -338,6 +456,14 @@
 |                           | CVE-2018-12700   |          |                          |               | binutils: Stack Exhaustion in                    |
 |                           |                  |          |                          |               | debug_write_type in debug.c                      |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-12934   |          |                          |               | binutils: Uncontrolled                           |
+|                           |                  |          |                          |               | Resource Consumption in                          |
+|                           |                  |          |                          |               | remember_Ktype in cplus-dem.c                    |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-13033   |          |                          |               | binutils: Uncontrolled                           |
+|                           |                  |          |                          |               | Resource Consumption in                          |
+|                           |                  |          |                          |               | execution of nm                                  |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-17358   |          |                          |               | binutils: invalid memory access in               |
 |                           |                  |          |                          |               | _bfd_stab_section_find_nearest_line              |
 |                           |                  |          |                          |               | in syms.c                                        |
@@ -361,6 +487,10 @@
 |                           | CVE-2018-18309   |          |                          |               | binutils: invalid memory                         |
 |                           |                  |          |                          |               | address dereference in                           |
 |                           |                  |          |                          |               | read_reloc in reloc.c                            |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-18483   |          |                          |               | binutils: Integer overflow in                    |
+|                           |                  |          |                          |               | cplus-dem.c:get_count() allows                   |
+|                           |                  |          |                          |               | for denial of service                            |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-18484   |          |                          |               | binutils: Stack exhaustion                       |
 |                           |                  |          |                          |               | in cp-demangle.c allows for                      |
@@ -407,6 +537,9 @@
 |                           |                  |          |                          |               | _bfd_generic_read_minisymbols                    |
 |                           |                  |          |                          |               | function in syms.c                               |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-20623   |          |                          |               | binutils: Use-after-free in                      |
+|                           |                  |          |                          |               | the error function                               |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-20651   |          |                          |               | binutils: NULL                                   |
 |                           |                  |          |                          |               | pointer dereference in                           |
 |                           |                  |          |                          |               | elf_link_add_object_symbols                      |
@@ -416,6 +549,9 @@
 |                           | CVE-2018-20671   |          |                          |               | binutils: Integer overflow in                    |
 |                           |                  |          |                          |               | load_specific_debug_section                      |
 |                           |                  |          |                          |               | function                                         |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-20673   |          |                          |               | libiberty: Integer overflow in                   |
+|                           |                  |          |                          |               | demangle_template() function                     |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-8945    |          |                          |               | binutils: Crash in                               |
 |                           |                  |          |                          |               | elf.c:bfd_section_from_shdr()                    |
@@ -430,11 +566,52 @@
 |                           |                  |          |                          |               | libiberty/cplus-dem.c causes                     |
 |                           |                  |          |                          |               | crash                                            |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-1010204 |          |                          |               | binutils: Improper Input                         |
+|                           |                  |          |                          |               | Validation, Signed/Unsigned                      |
+|                           |                  |          |                          |               | Comparison, Out-of-bounds                        |
+|                           |                  |          |                          |               | Read in gold/fileread.cc and                     |
+|                           |                  |          |                          |               | elfcpp/elfcpp_file.h...                          |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-12972   |          |                          |               | An issue was discovered in the                   |
+|                           |                  |          |                          |               | Binary File Descriptor (BFD)                     |
+|                           |                  |          |                          |               | library (aka...                                  |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-14250   |          |                          |               | binutils: integer overflow in                    |
+|                           |                  |          |                          |               | simple-object-elf.c leads to a                   |
+|                           |                  |          |                          |               | heap-based buffer overflow                       |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2019-14444   |          |                          |               | binutils: integer overflow in                    |
 |                           |                  |          |                          |               | function apply_relocation in                     |
 |                           |                  |          |                          |               | readelf.c                                        |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-17450   |          |                          |               | binutils: denial of service                      |
+|                           |                  |          |                          |               | via crafted ELF file                             |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-17451   |          |                          |               | binutils: integer overflow                       |
+|                           |                  |          |                          |               | leading to a SEGV in                             |
+|                           |                  |          |                          |               | _bfd_dwarf2_find_nearest_line                    |
+|                           |                  |          |                          |               | in dwarf2.c                                      |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9073    |          |                          |               | binutils: excessive memory                       |
+|                           |                  |          |                          |               | allocation in function                           |
+|                           |                  |          |                          |               | _bfd_elf_slurp_version_tables                    |
+|                           |                  |          |                          |               | in elf.c                                         |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9074    |          |                          |               | binutils: out-of-bound read                      |
+|                           |                  |          |                          |               | in function bfd_getl32 in                        |
+|                           |                  |          |                          |               | libbfd.c                                         |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9075    |          |                          |               | binutils: heap-based                             |
+|                           |                  |          |                          |               | buffer overflow in function                      |
+|                           |                  |          |                          |               | _bfd_archive_64_bit_slurp_armap                  |
+|                           |                  |          |                          |               | in archive64.c                                   |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9077    |          |                          |               | binutils: heap-based                             |
+|                           |                  |          |                          |               | buffer overflow in function                      |
+|                           |                  |          |                          |               | process_mips_specific in                         |
+|                           |                  |          |                          |               | readelf.c                                        |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
-| bsdutils                  | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.5      |               | util-linux: Shell command                        |
+| bsdutils                  | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.6      |               | util-linux: Shell command                        |
 |                           |                  |          |                          |               | injection in unescaped                           |
 |                           |                  |          |                          |               | bash-completed mount point                       |
 |                           |                  |          |                          |               | names                                            |
@@ -451,12 +628,12 @@
 |                           |                  |          |                          |               |                                                  |
 |                           |                  |          |                          |               |                                                  |
 +---------------------------+------------------+          +--------------------------+---------------+--------------------------------------------------+
-| fdisk                     | CVE-2018-7738    |          | 2.31.1-0.4ubuntu3.5      |               | util-linux: Shell command                        |
+| fdisk                     | CVE-2018-7738    |          | 2.31.1-0.4ubuntu3.6      |               | util-linux: Shell command                        |
 |                           |                  |          |                          |               | injection in unescaped                           |
 |                           |                  |          |                          |               | bash-completed mount point                       |
 |                           |                  |          |                          |               | names                                            |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
-| git                       | CVE-2018-1000021 | MEDIUM   | 1:2.17.1-1ubuntu0.5      |               | git: client prints server-sent                   |
+| git                       | CVE-2018-1000021 | MEDIUM   | 1:2.17.1-1ubuntu0.6      |               | git: client prints server-sent                   |
 |                           |                  |          |                          |               | ANSI escape codes to the                         |
 |                           |                  |          |                          |               | terminal, allowing for...                        |
 +---------------------------+                  +          +                          +---------------+                                                  +
@@ -467,10 +644,12 @@
 | gpgv                      | CVE-2019-13050   |          | 2.2.4-1ubuntu1.2         |               | GnuPG: interaction between the                   |
 |                           |                  |          |                          |               | sks-keyserver code and GnuPG                     |
 |                           |                  |          |                          |               | allows for a Certificate...                      |
-+                           +------------------+----------+                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-14855   | LOW      |                          |               |                                                  |
-+---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
-| libasn1-8-heimdal         | CVE-2019-12098   | MEDIUM   | 7.5.0+dfsg-1             |               | In the client side of Heimdal                    |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-14855   |          |                          |               | gnupg2: OpenPGP Key                              |
+|                           |                  |          |                          |               | Certification Forgeries with                     |
+|                           |                  |          |                          |               | SHA-1                                            |
++---------------------------+------------------+          +--------------------------+---------------+--------------------------------------------------+
+| libasn1-8-heimdal         | CVE-2019-12098   |          | 7.5.0+dfsg-1             |               | In the client side of Heimdal                    |
 |                           |                  |          |                          |               | before 7.6.0, failure to                         |
 |                           |                  |          |                          |               | verify anonymous...                              |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
@@ -521,6 +700,14 @@
 |                           | CVE-2018-12700   |          |                          |               | binutils: Stack Exhaustion in                    |
 |                           |                  |          |                          |               | debug_write_type in debug.c                      |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-12934   |          |                          |               | binutils: Uncontrolled                           |
+|                           |                  |          |                          |               | Resource Consumption in                          |
+|                           |                  |          |                          |               | remember_Ktype in cplus-dem.c                    |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-13033   |          |                          |               | binutils: Uncontrolled                           |
+|                           |                  |          |                          |               | Resource Consumption in                          |
+|                           |                  |          |                          |               | execution of nm                                  |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-17358   |          |                          |               | binutils: invalid memory access in               |
 |                           |                  |          |                          |               | _bfd_stab_section_find_nearest_line              |
 |                           |                  |          |                          |               | in syms.c                                        |
@@ -544,6 +731,10 @@
 |                           | CVE-2018-18309   |          |                          |               | binutils: invalid memory                         |
 |                           |                  |          |                          |               | address dereference in                           |
 |                           |                  |          |                          |               | read_reloc in reloc.c                            |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-18483   |          |                          |               | binutils: Integer overflow in                    |
+|                           |                  |          |                          |               | cplus-dem.c:get_count() allows                   |
+|                           |                  |          |                          |               | for denial of service                            |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-18484   |          |                          |               | binutils: Stack exhaustion                       |
 |                           |                  |          |                          |               | in cp-demangle.c allows for                      |
@@ -590,6 +781,9 @@
 |                           |                  |          |                          |               | _bfd_generic_read_minisymbols                    |
 |                           |                  |          |                          |               | function in syms.c                               |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-20623   |          |                          |               | binutils: Use-after-free in                      |
+|                           |                  |          |                          |               | the error function                               |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-20651   |          |                          |               | binutils: NULL                                   |
 |                           |                  |          |                          |               | pointer dereference in                           |
 |                           |                  |          |                          |               | elf_link_add_object_symbols                      |
@@ -599,6 +793,9 @@
 |                           | CVE-2018-20671   |          |                          |               | binutils: Integer overflow in                    |
 |                           |                  |          |                          |               | load_specific_debug_section                      |
 |                           |                  |          |                          |               | function                                         |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-20673   |          |                          |               | libiberty: Integer overflow in                   |
+|                           |                  |          |                          |               | demangle_template() function                     |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2018-8945    |          |                          |               | binutils: Crash in                               |
 |                           |                  |          |                          |               | elf.c:bfd_section_from_shdr()                    |
@@ -613,11 +810,52 @@
 |                           |                  |          |                          |               | libiberty/cplus-dem.c causes                     |
 |                           |                  |          |                          |               | crash                                            |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-1010204 |          |                          |               | binutils: Improper Input                         |
+|                           |                  |          |                          |               | Validation, Signed/Unsigned                      |
+|                           |                  |          |                          |               | Comparison, Out-of-bounds                        |
+|                           |                  |          |                          |               | Read in gold/fileread.cc and                     |
+|                           |                  |          |                          |               | elfcpp/elfcpp_file.h...                          |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-12972   |          |                          |               | An issue was discovered in the                   |
+|                           |                  |          |                          |               | Binary File Descriptor (BFD)                     |
+|                           |                  |          |                          |               | library (aka...                                  |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-14250   |          |                          |               | binutils: integer overflow in                    |
+|                           |                  |          |                          |               | simple-object-elf.c leads to a                   |
+|                           |                  |          |                          |               | heap-based buffer overflow                       |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2019-14444   |          |                          |               | binutils: integer overflow in                    |
 |                           |                  |          |                          |               | function apply_relocation in                     |
 |                           |                  |          |                          |               | readelf.c                                        |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-17450   |          |                          |               | binutils: denial of service                      |
+|                           |                  |          |                          |               | via crafted ELF file                             |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-17451   |          |                          |               | binutils: integer overflow                       |
+|                           |                  |          |                          |               | leading to a SEGV in                             |
+|                           |                  |          |                          |               | _bfd_dwarf2_find_nearest_line                    |
+|                           |                  |          |                          |               | in dwarf2.c                                      |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9073    |          |                          |               | binutils: excessive memory                       |
+|                           |                  |          |                          |               | allocation in function                           |
+|                           |                  |          |                          |               | _bfd_elf_slurp_version_tables                    |
+|                           |                  |          |                          |               | in elf.c                                         |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9074    |          |                          |               | binutils: out-of-bound read                      |
+|                           |                  |          |                          |               | in function bfd_getl32 in                        |
+|                           |                  |          |                          |               | libbfd.c                                         |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9075    |          |                          |               | binutils: heap-based                             |
+|                           |                  |          |                          |               | buffer overflow in function                      |
+|                           |                  |          |                          |               | _bfd_archive_64_bit_slurp_armap                  |
+|                           |                  |          |                          |               | in archive64.c                                   |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-9077    |          |                          |               | binutils: heap-based                             |
+|                           |                  |          |                          |               | buffer overflow in function                      |
+|                           |                  |          |                          |               | process_mips_specific in                         |
+|                           |                  |          |                          |               | readelf.c                                        |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
-| libblkid1                 | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.5      |               | util-linux: Shell command                        |
+| libblkid1                 | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.6      |               | util-linux: Shell command                        |
 |                           |                  |          |                          |               | injection in unescaped                           |
 |                           |                  |          |                          |               | bash-completed mount point                       |
 |                           |                  |          |                          |               | names                                            |
@@ -665,7 +903,11 @@
 |                           |                  |          |                          |               |                                                  |
 |                           |                  |          |                          |               |                                                  |
 +                           +------------------+----------+                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-7309    | LOW      |                          |               | glibc: memcmp function                           |
+|                           | CVE-2019-19126   | LOW      |                          |               | glibc:                                           |
+|                           |                  |          |                          |               | LD_PREFER_MAP_32BIT_EXEC not                     |
+|                           |                  |          |                          |               | ignored in setuid binaries                       |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-7309    |          |                          |               | glibc: memcmp function                           |
 |                           |                  |          |                          |               | incorrectly returns zero                         |
 +---------------------------+------------------+----------+                          +---------------+--------------------------------------------------+
 | libc-dev-bin              | CVE-2018-11236   | HIGH     |                          |               | glibc: Integer overflow in                       |
@@ -711,7 +953,11 @@
 |                           |                  |          |                          |               |                                                  |
 |                           |                  |          |                          |               |                                                  |
 +                           +------------------+----------+                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-7309    | LOW      |                          |               | glibc: memcmp function                           |
+|                           | CVE-2019-19126   | LOW      |                          |               | glibc:                                           |
+|                           |                  |          |                          |               | LD_PREFER_MAP_32BIT_EXEC not                     |
+|                           |                  |          |                          |               | ignored in setuid binaries                       |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-7309    |          |                          |               | glibc: memcmp function                           |
 |                           |                  |          |                          |               | incorrectly returns zero                         |
 +---------------------------+------------------+----------+                          +---------------+--------------------------------------------------+
 | libc6                     | CVE-2018-11236   | HIGH     |                          |               | glibc: Integer overflow in                       |
@@ -757,7 +1003,11 @@
 |                           |                  |          |                          |               |                                                  |
 |                           |                  |          |                          |               |                                                  |
 +                           +------------------+----------+                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-7309    | LOW      |                          |               | glibc: memcmp function                           |
+|                           | CVE-2019-19126   | LOW      |                          |               | glibc:                                           |
+|                           |                  |          |                          |               | LD_PREFER_MAP_32BIT_EXEC not                     |
+|                           |                  |          |                          |               | ignored in setuid binaries                       |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-7309    |          |                          |               | glibc: memcmp function                           |
 |                           |                  |          |                          |               | incorrectly returns zero                         |
 +---------------------------+------------------+----------+                          +---------------+--------------------------------------------------+
 | libc6-dev                 | CVE-2018-11236   | HIGH     |                          |               | glibc: Integer overflow in                       |
@@ -803,14 +1053,18 @@
 |                           |                  |          |                          |               |                                                  |
 |                           |                  |          |                          |               |                                                  |
 +                           +------------------+----------+                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-7309    | LOW      |                          |               | glibc: memcmp function                           |
+|                           | CVE-2019-19126   | LOW      |                          |               | glibc:                                           |
+|                           |                  |          |                          |               | LD_PREFER_MAP_32BIT_EXEC not                     |
+|                           |                  |          |                          |               | ignored in setuid binaries                       |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-7309    |          |                          |               | glibc: memcmp function                           |
 |                           |                  |          |                          |               | incorrectly returns zero                         |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
 | libdpkg-perl              | CVE-2017-8283    | HIGH     | 1.19.0.5ubuntu2.3        |               | dpkg-source in dpkg 1.3.0                        |
 |                           |                  |          |                          |               | through 1.18.23 is able to use                   |
 |                           |                  |          |                          |               | a non-GNU...                                     |
 +---------------------------+------------------+          +--------------------------+---------------+--------------------------------------------------+
-| libfdisk1                 | CVE-2018-7738    |          | 2.31.1-0.4ubuntu3.5      |               | util-linux: Shell command                        |
+| libfdisk1                 | CVE-2018-7738    |          | 2.31.1-0.4ubuntu3.6      |               | util-linux: Shell command                        |
 |                           |                  |          |                          |               | injection in unescaped                           |
 |                           |                  |          |                          |               | bash-completed mount point                       |
 |                           |                  |          |                          |               | names                                            |
@@ -893,7 +1147,7 @@
 | liblz4-1                  | CVE-2019-17543   | MEDIUM   | 0.0~r131-2ubuntu3        |               | lz4: heap-based buffer                           |
 |                           |                  |          |                          |               | overflow in LZ4_write32                          |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
-| libmount1                 | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.5      |               | util-linux: Shell command                        |
+| libmount1                 | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.6      |               | util-linux: Shell command                        |
 |                           |                  |          |                          |               | injection in unescaped                           |
 |                           |                  |          |                          |               | bash-completed mount point                       |
 |                           |                  |          |                          |               | names                                            |
@@ -931,7 +1185,7 @@
 |                           | CVE-2019-19012   |          |                          |               | oniguruma: integer overflow                      |
 |                           |                  |          |                          |               | in search_in_range function                      |
 |                           |                  |          |                          |               | in regexec.c leads to                            |
-|                           |                  |          |                          |               | out-of-bounds                                    |
+|                           |                  |          |                          |               | out-of-bounds read...                            |
 +                           +------------------+----------+                          +---------------+--------------------------------------------------+
 |                           | CVE-2019-16163   | MEDIUM   |                          |               | oniguruma: stack exhaustion in                   |
 |                           |                  |          |                          |               | regcomp.c because of recursion                   |
@@ -984,10 +1238,28 @@
 |                           |                  |          |                          |               | before 7.6.0, failure to                         |
 |                           |                  |          |                          |               | verify anonymous...                              |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
-| libsmartcols1             | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.5      |               | util-linux: Shell command                        |
+| libsmartcols1             | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.6      |               | util-linux: Shell command                        |
 |                           |                  |          |                          |               | injection in unescaped                           |
 |                           |                  |          |                          |               | bash-completed mount point                       |
 |                           |                  |          |                          |               | names                                            |
++---------------------------+------------------+          +--------------------------+---------------+--------------------------------------------------+
+| libsqlite3-0              | CVE-2020-11656   |          | 3.22.0-1ubuntu0.3        |               | sqlite: use-after-free in the                    |
+|                           |                  |          |                          |               | ALTER TABLE implementation                       |
++                           +------------------+----------+                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-8740    | MEDIUM   |                          |               | sqlite: NULL pointer                             |
+|                           |                  |          |                          |               | dereference with databases                       |
+|                           |                  |          |                          |               | with schema corrupted with                       |
+|                           |                  |          |                          |               | CREATE TABLE...                                  |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-19603   |          |                          |               | sqlite: mishandles certain                       |
+|                           |                  |          |                          |               | SELECT statements with a                         |
+|                           |                  |          |                          |               | nonexistent VIEW, leading to                     |
+|                           |                  |          |                          |               | DoS...                                           |
++                           +------------------+----------+                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-19645   | LOW      |                          |               | sqlite: infinite recursion                       |
+|                           |                  |          |                          |               | via certain types of                             |
+|                           |                  |          |                          |               | self-referential views in                        |
+|                           |                  |          |                          |               | conjunction with...                              |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
 | libssl1.1                 | CVE-2019-1549    | MEDIUM   | 1.1.1-1ubuntu2.1~18.04.5 |               | openssl: information                             |
 |                           |                  |          |                          |               | disclosure in fork()                             |
@@ -1023,7 +1295,7 @@
 |                           |                  |          |                          |               | current keyboard mode check                      |
 |                           |                  |          |                          |               | leading to passwords being...                    |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
-| libuuid1                  | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.5      |               | util-linux: Shell command                        |
+| libuuid1                  | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.6      |               | util-linux: Shell command                        |
 |                           |                  |          |                          |               | injection in unescaped                           |
 |                           |                  |          |                          |               | bash-completed mount point                       |
 |                           |                  |          |                          |               | names                                            |
@@ -1042,13 +1314,9 @@
 |                           |                  |          |                          |               | failure in _zip_cdir_grow                        |
 |                           |                  |          |                          |               | function                                         |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
-| linux-libc-dev            | CVE-2019-10220   | CRITICAL | 4.15.0-88.88             |               | kernel: CIFS: Relative paths                     |
+| linux-libc-dev            | CVE-2019-10220   | CRITICAL | 4.15.0-96.97             |               | kernel: CIFS: Relative paths                     |
 |                           |                  |          |                          |               | injection in directory entry                     |
 |                           |                  |          |                          |               | lists                                            |
-+                           +------------------+          +                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-19813   |          |                          |               | kernel: use-after-free                           |
-|                           |                  |          |                          |               | in __mutex_lock in                               |
-|                           |                  |          |                          |               | kernel/locking/mutex.c                           |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2019-19814   |          |                          |               | kernel: out-of-bounds write                      |
 |                           |                  |          |                          |               | in __remove_dirty_segment in                     |
@@ -1082,19 +1350,8 @@
 |                           |                  |          |                          |               | mm/memory-failure.c leads to                     |
 |                           |                  |          |                          |               | denial of service                                |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-16089   |          |                          |               | kernel: Improper return check                    |
-|                           |                  |          |                          |               | in nbd_genl_status function in                   |
-|                           |                  |          |                          |               | drivers/block/nbd.c                              |
-+                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2019-16230   |          |                          |               | kernel: null pointer dereference in              |
 |                           |                  |          |                          |               | drivers/gpu/drm/radeon/radeon_display.c          |
-+                           +------------------+          +                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-16234   |          |                          |               | kernel: null pointer dereference in              |
-|                           |                  |          |                          |               | drivers/net/wireless/intel/iwlwifi/pcie/trans.c  |
-+                           +------------------+          +                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-18675   |          |                          |               | kernel: integer overflow                         |
-|                           |                  |          |                          |               | in cpia2_remap_buffer in                         |
-|                           |                  |          |                          |               | drivers/media/usb/cpia2/cpia2_core.c             |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2019-19054   |          |                          |               | kernel: A memory leak in the                     |
 |                           |                  |          |                          |               | cx23888_ir_probe() function in                   |
@@ -1116,10 +1373,26 @@
 |                           |                  |          |                          |               | ath9k management function in                     |
 |                           |                  |          |                          |               | allows local...                                  |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-19813   |          |                          |               | kernel: use-after-free                           |
+|                           |                  |          |                          |               | in __mutex_lock in                               |
+|                           |                  |          |                          |               | kernel/locking/mutex.c                           |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2019-19815   |          |                          |               | kernel: NULL pointer                             |
 |                           |                  |          |                          |               | dereference in                                   |
 |                           |                  |          |                          |               | f2fs_recover_fsync_data in                       |
 |                           |                  |          |                          |               | fs/f2fs/recovery.c                               |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-20425   |          |                          |               | In the Lustre file system                        |
+|                           |                  |          |                          |               | before 2.12.3, the ptlrpc                        |
+|                           |                  |          |                          |               | module has an...                                 |
++                           +------------------+          +                          +---------------+                                                  +
+|                           | CVE-2019-20429   |          |                          |               |                                                  |
+|                           |                  |          |                          |               |                                                  |
+|                           |                  |          |                          |               |                                                  |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2020-1749    |          |                          |               | kernel: some ipv6 protocols                      |
+|                           |                  |          |                          |               | not encrypted over ipsec                         |
+|                           |                  |          |                          |               | tunnel.                                          |
 +                           +------------------+----------+                          +---------------+--------------------------------------------------+
 |                           | CVE-2016-10723   | MEDIUM   |                          |               | ** DISPUTED ** An issue was                      |
 |                           |                  |          |                          |               | discovered in the Linux kernel                   |
@@ -1185,22 +1458,38 @@
 |                           |                  |          |                          |               | function in the                                  |
 |                           |                  |          |                          |               | drivers/net/wireless/ath/ath6kl/usb.c            |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-18808   |          |                          |               | kernel: memory leak in                           |
-|                           |                  |          |                          |               | ccp_run_sha_cmd() function in                    |
-|                           |                  |          |                          |               | drivers/crypto/ccp/ccp-ops.c                     |
+|                           | CVE-2019-16089   |          |                          |               | kernel: Improper return check                    |
+|                           |                  |          |                          |               | in nbd_genl_status function in                   |
+|                           |                  |          |                          |               | drivers/block/nbd.c                              |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-19377   |          |                          |               | kernel: use-after-free                           |
+|                           |                  |          |                          |               | in btrfs_queue_work in                           |
+|                           |                  |          |                          |               | fs/btrfs/async-thread.c                          |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2019-19462   |          |                          |               | kernel: NULL pointer                             |
 |                           |                  |          |                          |               | dereference in relay_open in                     |
 |                           |                  |          |                          |               | kernel/relay.c                                   |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-19768   |          |                          |               | kernel: use-after-free                           |
-|                           |                  |          |                          |               | in __blk_add_trace in                            |
-|                           |                  |          |                          |               | kernel/trace/blktrace.c                          |
+|                           | CVE-2019-19769   |          |                          |               | kernel: use-after-free in                        |
+|                           |                  |          |                          |               | perf_trace_lock_acquire                          |
+|                           |                  |          |                          |               | related to                                       |
+|                           |                  |          |                          |               | include/trace/events/lock.h                      |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
-|                           | CVE-2020-8992    |          |                          |               | kernel: soft lockup via                          |
-|                           |                  |          |                          |               | a crafted journal size in                        |
-|                           |                  |          |                          |               | ext4_protect_reserved_inode in                   |
-|                           |                  |          |                          |               | fs/ext4/block_validity.c...                      |
+|                           | CVE-2019-19770   |          |                          |               | kernel: use-after-free                           |
+|                           |                  |          |                          |               | in debugfs_remove in                             |
+|                           |                  |          |                          |               | fs/debugfs/inode.c                               |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2020-11565   |          |                          |               | kernel: out-of-bounds write                      |
+|                           |                  |          |                          |               | in mpol_parse_str function in                    |
+|                           |                  |          |                          |               | mm/mempolicy.c                                   |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2020-11669   |          |                          |               | kernel: powerpc: guest can                       |
+|                           |                  |          |                          |               | cause DoS on POWER9 KVM hosts                    |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2020-11725   |          |                          |               | kernel: improper handling                        |
+|                           |                  |          |                          |               | of private_size*count                            |
+|                           |                  |          |                          |               | multiplication due to                            |
+|                           |                  |          |                          |               | count=info->owner typo                           |
 +                           +------------------+----------+                          +---------------+--------------------------------------------------+
 |                           | CVE-2015-8553    | LOW      |                          |               | CVE-2015-2150 CVE-2015-8553                      |
 |                           |                  |          |                          |               | xen: non-maskable interrupts                     |
@@ -1215,6 +1504,10 @@
 |                           |                  |          |                          |               | failure in the efi subsystem                     |
 |                           |                  |          |                          |               | leads to denial of...                            |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-18808   |          |                          |               | kernel: memory leak in                           |
+|                           |                  |          |                          |               | ccp_run_sha_cmd() function in                    |
+|                           |                  |          |                          |               | drivers/crypto/ccp/ccp-ops.c                     |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
 |                           | CVE-2019-19073   |          |                          |               | kernel: Memory leaks in                          |
 |                           |                  |          |                          |               | drivers/net/wireless/ath/ath9k/htc_hst.c         |
 |                           |                  |          |                          |               | in the Linux kernel (DOS)                        |
@@ -1228,13 +1521,23 @@
 |                           |                  |          |                          |               | mmget_not_zero()/get_task_mm()                   |
 |                           |                  |          |                          |               | and core dumping                                 |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
-|                           | CVE-2020-8428    |          |                          |               | kernel: use-after-free in                        |
-|                           |                  |          |                          |               | fs/namei.c                                       |
+|                           | CVE-2020-11494   |          |                          |               | An issue was discovered                          |
+|                           |                  |          |                          |               | in slc_bump in                                   |
+|                           |                  |          |                          |               | drivers/net/can/slcan.c in the                   |
+|                           |                  |          |                          |               | Linux kernel...                                  |
 +                           +------------------+          +                          +---------------+--------------------------------------------------+
-|                           | CVE-2020-8648    |          |                          |               | kernel: use-after-free in                        |
-|                           |                  |          |                          |               | n_tty_receive_buf_common                         |
+|                           | CVE-2020-8647    |          |                          |               | kernel: out-of-bounds read in                    |
+|                           |                  |          |                          |               | in vc_do_resize function in                      |
+|                           |                  |          |                          |               | drivers/tty/vt/vt.c                              |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2020-8649    |          |                          |               | kernel: invalid read location                    |
+|                           |                  |          |                          |               | in vgacon_invert_region                          |
 |                           |                  |          |                          |               | function in                                      |
-|                           |                  |          |                          |               | drivers/tty/n_tty.c                              |
+|                           |                  |          |                          |               | drivers/video/console/vgacon.c                   |
++                           +------------------+----------+                          +---------------+--------------------------------------------------+
+|                           | CVE-2020-0067    | UNKNOWN  |                          |               | In f2fs_xattr_generic_list of                    |
+|                           |                  |          |                          |               | xattr.c, there is a possible                     |
+|                           |                  |          |                          |               | out of bounds read...                            |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
 | locales                   | CVE-2018-11236   | HIGH     | 2.27-3ubuntu1            |               | glibc: Integer overflow in                       |
 |                           |                  |          |                          |               | stdlib/canonicalize.c on                         |
@@ -1279,7 +1582,11 @@
 |                           |                  |          |                          |               |                                                  |
 |                           |                  |          |                          |               |                                                  |
 +                           +------------------+----------+                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-7309    | LOW      |                          |               | glibc: memcmp function                           |
+|                           | CVE-2019-19126   | LOW      |                          |               | glibc:                                           |
+|                           |                  |          |                          |               | LD_PREFER_MAP_32BIT_EXEC not                     |
+|                           |                  |          |                          |               | ignored in setuid binaries                       |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-7309    |          |                          |               | glibc: memcmp function                           |
 |                           |                  |          |                          |               | incorrectly returns zero                         |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
 | login                     | CVE-2018-7169    | MEDIUM   | 1:4.5-1ubuntu2           |               | shadow-utils: newgidmap                          |
@@ -1292,7 +1599,7 @@
 |                           |                  |          |                          |               | conditions by copying and                        |
 |                           |                  |          |                          |               | removing directory trees                         |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
-| mount                     | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.5      |               | util-linux: Shell command                        |
+| mount                     | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.6      |               | util-linux: Shell command                        |
 |                           |                  |          |                          |               | injection in unescaped                           |
 |                           |                  |          |                          |               | bash-completed mount point                       |
 |                           |                  |          |                          |               | names                                            |
@@ -1340,7 +1647,11 @@
 |                           |                  |          |                          |               |                                                  |
 |                           |                  |          |                          |               |                                                  |
 +                           +------------------+----------+                          +---------------+--------------------------------------------------+
-|                           | CVE-2019-7309    | LOW      |                          |               | glibc: memcmp function                           |
+|                           | CVE-2019-19126   | LOW      |                          |               | glibc:                                           |
+|                           |                  |          |                          |               | LD_PREFER_MAP_32BIT_EXEC not                     |
+|                           |                  |          |                          |               | ignored in setuid binaries                       |
++                           +------------------+          +                          +---------------+--------------------------------------------------+
+|                           | CVE-2019-7309    |          |                          |               | glibc: memcmp function                           |
 |                           |                  |          |                          |               | incorrectly returns zero                         |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
 | ncurses-base              | CVE-2019-17594   | MEDIUM   | 6.1-1ubuntu1.18.04       |               | ncurses: heap-based buffer                       |
@@ -1386,8 +1697,12 @@
 | patch                     | CVE-2018-6952    | MEDIUM   | 2.7.6-2ubuntu1.1         |               | patch: Double free of memory                     |
 |                           |                  |          |                          |               | in pch.c:another_hunk() causes                   |
 |                           |                  |          |                          |               | a crash                                          |
-+---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
-| tar                       | CVE-2018-20482   | LOW      | 1.29b-2ubuntu0.1         |               | tar: Infinite read loop in                       |
++---------------------------+------------------+          +--------------------------+---------------+--------------------------------------------------+
+| tar                       | CVE-2019-9923    |          | 1.29b-2ubuntu0.1         |               | tar: null-pointer dereference                    |
+|                           |                  |          |                          |               | in pax_decode_header in                          |
+|                           |                  |          |                          |               | sparse.c                                         |
++                           +------------------+----------+                          +---------------+--------------------------------------------------+
+|                           | CVE-2018-20482   | LOW      |                          |               | tar: Infinite read loop in                       |
 |                           |                  |          |                          |               | sparse_dump_region function in                   |
 |                           |                  |          |                          |               | sparse.c                                         |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
@@ -1396,36 +1711,8 @@
 |                           |                  |          |                          |               | fileio.c:UzpPassword function                    |
 |                           |                  |          |                          |               | allows code execution                            |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
-| util-linux                | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.5      |               | util-linux: Shell command                        |
+| util-linux                | CVE-2018-7738    | HIGH     | 2.31.1-0.4ubuntu3.6      |               | util-linux: Shell command                        |
 |                           |                  |          |                          |               | injection in unescaped                           |
 |                           |                  |          |                          |               | bash-completed mount point                       |
 |                           |                  |          |                          |               | names                                            |
-+---------------------------+------------------+          +--------------------------+---------------+--------------------------------------------------+
-| vim                       | CVE-2019-20079   |          | 2:8.0.1453-1ubuntu1.1    |               | vim: Use after free in                           |
-|                           |                  |          |                          |               | window.c                                         |
-+                           +------------------+----------+                          +---------------+--------------------------------------------------+
-|                           | CVE-2018-20786   | MEDIUM   |                          |               | libvterm: NULL                                   |
-|                           |                  |          |                          |               | pointer dereference in                           |
-|                           |                  |          |                          |               | vterm_screen_set_callbacks                       |
-+---------------------------+------------------+----------+                          +---------------+--------------------------------------------------+
-| vim-common                | CVE-2019-20079   | HIGH     |                          |               | vim: Use after free in                           |
-|                           |                  |          |                          |               | window.c                                         |
-+                           +------------------+----------+                          +---------------+--------------------------------------------------+
-|                           | CVE-2018-20786   | MEDIUM   |                          |               | libvterm: NULL                                   |
-|                           |                  |          |                          |               | pointer dereference in                           |
-|                           |                  |          |                          |               | vterm_screen_set_callbacks                       |
-+---------------------------+------------------+----------+                          +---------------+--------------------------------------------------+
-| vim-runtime               | CVE-2019-20079   | HIGH     |                          |               | vim: Use after free in                           |
-|                           |                  |          |                          |               | window.c                                         |
-+                           +------------------+----------+                          +---------------+--------------------------------------------------+
-|                           | CVE-2018-20786   | MEDIUM   |                          |               | libvterm: NULL                                   |
-|                           |                  |          |                          |               | pointer dereference in                           |
-|                           |                  |          |                          |               | vterm_screen_set_callbacks                       |
-+---------------------------+------------------+----------+                          +---------------+--------------------------------------------------+
-| xxd                       | CVE-2019-20079   | HIGH     |                          |               | vim: Use after free in                           |
-|                           |                  |          |                          |               | window.c                                         |
-+                           +------------------+----------+                          +---------------+--------------------------------------------------+
-|                           | CVE-2018-20786   | MEDIUM   |                          |               | libvterm: NULL                                   |
-|                           |                  |          |                          |               | pointer dereference in                           |
-|                           |                  |          |                          |               | vterm_screen_set_callbacks                       |
 +---------------------------+------------------+----------+--------------------------+---------------+--------------------------------------------------+
