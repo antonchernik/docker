@@ -14,7 +14,7 @@ pipeline {
         DOCKER_CREDENTIALS_ID="docker-antonchernik"
         IMAGE_OS="ubuntu"
         IMAGE_ARCHITECTURE="amd64"
-        IMAGE_NAME="postfix"
+        IMAGE_NAME="postgres"
         IMAGE_VERSION="12"
         IMAGE_FULL_VERSION="12.2-2"
     }
