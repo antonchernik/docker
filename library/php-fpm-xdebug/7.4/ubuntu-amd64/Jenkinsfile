@@ -81,6 +81,7 @@ pipeline {
                     sh(returnStdout: true, script:'git config --global user.name "Anton Chernik"')
                     sh(returnStdout: true, script:'git add --all')
                     sh(returnStdout: true, script:'git commit -am "Build ${IMAGE_NAME}:${IMAGE_FULL_VERSION}"')
+                    sh(returnStdout: true, script:'git commit -am "Build ${IMAGE_NAME}:${IMAGE_FULL_VERSION}"')
                     sh(returnStdout: true, script:"git tag -a ${IMAGE_NAME}-v${IMAGE_FULL_VERSION} -m 'Build ${IMAGE_NAME}:${IMAGE_FULL_VERSION}'")
                     sh(returnStdout: true, script:'git push origin master --tags')
                 }
