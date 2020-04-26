@@ -27,6 +27,7 @@ pipeline {
                 sh(returnStdout: true, script: "git reset --hard")
                 sh(returnStdout: true, script: "git clean -fdx")
                 git branch: "master", credentialsId: GIT_CREDENTIALS_ID, url: "git@github.com:antonchernik/docker.git"
+                sh(returnStdout: true, script: "git fetch --tags")
             }
         }
         stage('Build image') {
