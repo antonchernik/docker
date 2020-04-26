@@ -16,7 +16,7 @@ PostgreSQL implements the majority of the SQL:2011 standard, is ACID-compliant a
 ## start a postgres instance
 
 ```console
-$ docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+$ docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d antonchernik/postgres
 ```
 
 The default `postgres` user and database are created in the entrypoint with `initdb`.
@@ -28,7 +28,7 @@ The default `postgres` user and database are created in the entrypoint with `ini
 ## ... or via `psql`
 
 ```console
-$ docker run -it --rm --network some-network antonchernik/postgres psql -h some-postgres -U postgres
+$ docker run -it --rm --network some-network antonchernik/postgres psql -h some-postgres -U antonchernik/postgres
 psql (12.2-2)
 Type "help" for help.
 
@@ -42,7 +42,7 @@ postgres=# SELECT 1;
 
 ## ... via [`docker stack deploy`](https://docs.docker.com/engine/reference/commandline/stack_deploy/) or [`docker-compose`](https://github.com/docker/compose)
 
-Example `stack.yml` for `postgres`:
+Example `stack.yml` for `antonchernik/postgres`:
 
 ```yaml
 # Use postgres/example user/password credentials
@@ -65,7 +65,7 @@ services:
 
 # How to extend this image
 
-There are many ways to extend the `postgres` image. Without trying to support every possible use case, here are just a few that we have found useful.
+There are many ways to extend the `antonchernik/postgres` image. Without trying to support every possible use case, here are just a few that we have found useful.
 
 ## Environment Variables
 
