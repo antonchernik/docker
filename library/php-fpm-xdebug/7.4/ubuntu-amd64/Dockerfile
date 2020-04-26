@@ -69,3 +69,8 @@ RUN curl -OL https://phpmd.org/static/latest/phpmd.phar \
 RUN curl -OL https://phar.phpunit.de/phpcpd.phar \
     && chmod +x phpcpd.phar \
     && mv phpcpd.phar /usr/local/bin/phpcpd
+
+RUN apt-get install -y libpq-dev \
+       && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+       && docker-php-ext-install pdo pgsql pdo_pgsql \
+       && docker-php-ext-enable pdo pgsql pdo_pgsql
