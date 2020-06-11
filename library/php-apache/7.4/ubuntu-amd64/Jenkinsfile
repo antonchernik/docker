@@ -1,0 +1,90 @@
+#!/usr/bin/env groovy
+import hudson.FilePath;
+import jenkins.model.Jenkins;
+
+def BRANCH_TMP_LIST
+
+
+pipeline {
+    agent { label 'ubuntu' }
+
+    environment {
+        DOCKER_REGISTRY="docker.io/antonchernik/"
+        GIT_CREDENTIALS_ID="github_antonchernik_ssh"
+        DOCKER_CREDENTIALS_ID="docker-antonchernik"
+        IMAGE_OS="ubuntu"
+        IMAGE_ARCHITECTURE="amd64"
+        IMAGE_NAME="php-apache"
+        IMAGE_VERSION="7.4"
+        IMAGE_FULL_VERSION="7.4.7"
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                echo "Cleaning workspace"
+                sh(returnStdout: true, script: "git rev-parse --verify HEAD")
+                echo "Resetting working tree"
+                sh(returnStdout: true, script: "git reset --hard")
+                sh(returnStdout: true, script: "git clean -fdx")
+                git branch: "master", credentialsId: GIT_CREDENTIALS_ID, url: "git@github.com:antonchernik/docker.git"
+            }
+        }
+        stage('Build image') {
+            steps {
+                dir("library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_OS}-${IMAGE_ARCHITECTURE}") {
+                    sh(returnStdout: true, script: "docker build -f Dockerfile -t ${DOCKER_REGISTRY}${IMAGE_NAME}:${IMAGE_FULL_VERSION}-${IMAGE_OS}-${IMAGE_ARCHITECTURE} .")
+                }
+            }
+        }
+        stage('Image vulnerabilities check') {
+            steps {
+                script {
+                    sh(returnStdout: true, script: "trivy --output library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_OS}-${IMAGE_ARCHITECTURE}/trivy.txt ${DOCKER_REGISTRY}${IMAGE_NAME}:${IMAGE_FULL_VERSION}-${IMAGE_OS}-${IMAGE_ARCHITECTURE} || true")
+                    publishHTML([
+                    	allowMissing: false,
+                    	alwaysLinkToLastBuild: false,
+                    	keepAll: false,
+                    	reportDir: "library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_OS}-${IMAGE_ARCHITECTURE}",
+                    	reportFiles: 'trivy.txt',
+                    	reportName: 'Trivy Report',
+                    	reportTitles: ''
+                    ])
+                }
+            }
+        }
+        stage('Push image') {
+            steps {
+                withDockerRegistry([ credentialsId: DOCKER_CREDENTIALS_ID, url: "" ]) {
+                    sh(returnStdout: true, script: "docker push ${DOCKER_REGISTRY}${IMAGE_NAME}:${IMAGE_FULL_VERSION}-${IMAGE_OS}-${IMAGE_ARCHITECTURE}")
+                }
+
+            }
+        }
+        stage('Cleanup') {
+            steps {
+                sh(returnStdout: true, script: "docker rmi ${DOCKER_REGISTRY}${IMAGE_NAME}:${IMAGE_FULL_VERSION}-${IMAGE_OS}-${IMAGE_ARCHITECTURE}")
+            }
+        }
+        stage('Update readme') {
+            steps {
+                script {
+                    GIT_URL_TAG="sed -i 's~<br/>~"+"<br/>" + "* ${IMAGE_FULL_VERSION}-${IMAGE_OS}-${IMAGE_ARCHITECTURE} "+"Dockerfile [(library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_OS}-${IMAGE_ARCHITECTURE}/Dockerfile)]("+"https://github.com/antonchernik/docker/blob/${IMAGE_NAME}-v${IMAGE_FULL_VERSION}/library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_OS}-${IMAGE_ARCHITECTURE}/Dockerfile)"+"<br />"+"Trivy security report [(library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_OS}-${IMAGE_ARCHITECTURE}/trivy.txt)]("+"https://github.com/antonchernik/docker/blob/${IMAGE_NAME}-v${IMAGE_FULL_VERSION}/library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_OS}-${IMAGE_ARCHITECTURE}/trivy.txt)"+"<br />"+"~g' library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_OS}-${IMAGE_ARCHITECTURE}/README.md"
+                }
+                sh(returnStdout: true, script: GIT_URL_TAG)
+
+            }
+        }
+        stage('Set GIT tag') {
+            steps {
+                sshagent (credentials: [GIT_CREDENTIALS_ID]) {
+                    sh(returnStdout: true, script:'git config --global user.email "anton.chernik@gmail.com"')
+                    sh(returnStdout: true, script:'git config --global user.name "Anton Chernik"')
+                    sh(returnStdout: true, script:'git add --all')
+                    sh(returnStdout: true, script:'git commit -am "Build ${IMAGE_NAME}:${IMAGE_FULL_VERSION}"')
+                    sh(returnStdout: true, script:"git tag -a ${IMAGE_NAME}-v${IMAGE_FULL_VERSION} -m 'Build ${IMAGE_NAME}:${IMAGE_FULL_VERSION}'")
+                    sh(returnStdout: true, script:'git push origin master --tags')
+                }
+            }
+        }
+    }
+}
