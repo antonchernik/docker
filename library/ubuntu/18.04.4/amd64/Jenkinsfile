@@ -38,12 +38,12 @@ pipeline {
         stage('Image vulnerabilities check') {
             steps {
                 script {
-                    sh(returnStdout: true, script: "trivy --output library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_OS}-${IMAGE_ARCHITECTURE}/trivy.txt ${DOCKER_REGISTRY}${IMAGE_NAME}:${IMAGE_VERSION}-${IMAGE_ARCHITECTURE} || true")
+                    sh(returnStdout: true, script: "trivy --output library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}/trivy.txt ${DOCKER_REGISTRY}${IMAGE_NAME}:${IMAGE_VERSION}-${IMAGE_ARCHITECTURE} || true")
                     publishHTML([
                     	allowMissing: false,
                     	alwaysLinkToLastBuild: false,
                     	keepAll: false,
-                    	reportDir: "library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_OS}-${IMAGE_ARCHITECTURE}",
+                    	reportDir: "library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}",
                     	reportFiles: 'trivy.txt',
                     	reportName: 'Trivy Report',
                     	reportTitles: ''
@@ -67,7 +67,7 @@ pipeline {
         stage('Update readme') {
             steps {
                 script {
-                    GIT_URL_TAG="sed -i 's~<br/>~"+"<br/>" + "* ${IMAGE_VERSION} "+"Dockerfile [(library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}/Dockerfile)]("+"https://github.com/antonchernik/docker/blob/${IMAGE_NAME}-v${IMAGE_VERSION}/library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}/Dockerfile)"+"<br />"+"Trivy security report [(library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}/trivy.txt)]("+"https://github.com/antonchernik/docker/blob/${IMAGE_NAME}-v${IMAGE_VERSION}/library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}/trivy.txt)"+"<br />"+"~g' library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_OS}-${IMAGE_ARCHITECTURE}/README.md"
+                    GIT_URL_TAG="sed -i 's~<br/>~"+"<br/>" + "* ${IMAGE_VERSION} "+"Dockerfile [(library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}/Dockerfile)]("+"https://github.com/antonchernik/docker/blob/${IMAGE_NAME}-v${IMAGE_VERSION}/library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}/Dockerfile)"+"<br />"+"Trivy security report [(library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}/trivy.txt)]("+"https://github.com/antonchernik/docker/blob/${IMAGE_NAME}-v${IMAGE_VERSION}/library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}/trivy.txt)"+"<br />"+"~g' library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}/README.md"
                 }
                 sh(returnStdout: true, script: GIT_URL_TAG)
 
