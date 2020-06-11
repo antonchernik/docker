@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Build image') {
             steps {
-                dir("library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_OS}-${IMAGE_ARCHITECTURE}") {
+                dir("library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}") {
                     sh(returnStdout: true, script: "wget -O ubuntu-bionic-core-cloudimg-amd64-root.tar.gz https://partner-images.canonical.com/core/bionic/current/ubuntu-bionic-core-cloudimg-amd64-root.tar.gz")
                     sh(returnStdout: true, script: "docker build -f Dockerfile -t ${DOCKER_REGISTRY}${IMAGE_NAME}:${IMAGE_VERSION}-${IMAGE_ARCHITECTURE} .")
                 }
