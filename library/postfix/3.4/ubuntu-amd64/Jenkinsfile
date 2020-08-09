@@ -14,9 +14,9 @@ pipeline {
         DOCKER_CREDENTIALS_ID="docker-antonchernik"
         IMAGE_OS="ubuntu"
         IMAGE_ARCHITECTURE="amd64"
-        IMAGE_NAME="postgres"
-        IMAGE_VERSION="12"
-        IMAGE_FULL_VERSION="12.3-1"
+        IMAGE_NAME="postfix"
+        IMAGE_VERSION="3.4"
+        IMAGE_FULL_VERSION="3.4.10"
     }
     stages {
         stage('Checkout') {
@@ -81,7 +81,6 @@ pipeline {
                     sh(returnStdout: true, script:'git config --global user.name "Anton Chernik"')
                     sh(returnStdout: true, script:'git add --all')
                     sh(returnStdout: true, script:'git commit -am "Build ${IMAGE_NAME}:${IMAGE_FULL_VERSION}"')
-                    sh(returnStdout: true, script:"git tag -d ${IMAGE_NAME}-v${IMAGE_FULL_VERSION} || true")
                     sh(returnStdout: true, script:"git tag -a ${IMAGE_NAME}-v${IMAGE_FULL_VERSION} -m 'Build ${IMAGE_NAME}:${IMAGE_FULL_VERSION}'")
                     sh(returnStdout: true, script:'git push origin master --tags')
                 }
