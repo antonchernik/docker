@@ -1,5 +1,5 @@
 FROM scratch
-ADD ubuntu-bionic-core-cloudimg-amd64-root.tar.gz /
+ADD ubuntu-focal-core-cloudimg-amd64-root.tar.gz /
 # verify that the APT lists files do not exist
 RUN [ -z "$(apt-get indextargets)" ]
 # (see https://bugs.launchpad.net/cloud-images/+bug/1699913)
