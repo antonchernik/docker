@@ -15,7 +15,7 @@ pipeline {
         IMAGE_OS="ubuntu"
         IMAGE_ARCHITECTURE="amd64"
         IMAGE_NAME="nginx"
-        IMAGE_VERSION="1.14"
+        IMAGE_VERSION="1.18"
     }
     stages {
         stage('Checkout') {

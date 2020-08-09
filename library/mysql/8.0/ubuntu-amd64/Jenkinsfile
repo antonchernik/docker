@@ -16,7 +16,7 @@ pipeline {
         IMAGE_ARCHITECTURE="amd64"
         IMAGE_NAME="mysql"
         IMAGE_VERSION="8.0"
-        IMAGE_FULL_VERSION="8.0.19"
+        IMAGE_FULL_VERSION="8.0.21"
     }
     stages {
         stage('Checkout') {

@@ -15,7 +15,7 @@ pipeline {
         IMAGE_OS="ubuntu"
         IMAGE_ARCHITECTURE="amd64"
         IMAGE_NAME="gearman"
-        IMAGE_VERSION="1.1"
+        IMAGE_VERSION="1.1.18"
     }
     stages {
         stage('Checkout') {
