@@ -1,4 +1,4 @@
-FROM antonchernik/ubuntu:18.04.4-amd64
+FROM antonchernik/ubuntu:20.04.1-amd64
 
 RUN \
   apt-get update && \
