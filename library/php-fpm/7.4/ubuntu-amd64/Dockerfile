@@ -1,4 +1,4 @@
-FROM antonchernik/ubuntu:18.04.4-amd64
+FROM antonchernik/ubuntu:20.04.1-amd64
 
 # prevent Debian's PHP packages from being installed
 # https://github.com/docker-library/php/pull/542
@@ -59,9 +59,9 @@ ENV PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie"
 
 ENV GPG_KEYS 42670A7FE4D0441C8E4632349E4FDC074A4EF02D 5A52880781F755608BF815FC910DEB46F53EA312
 
-ENV PHP_VERSION 7.4.7
-ENV PHP_URL="https://www.php.net/get/php-7.4.7.tar.xz/from/this/mirror" PHP_ASC_URL="https://www.php.net/get/php-7.4.7.tar.xz.asc/from/this/mirror"
-ENV PHP_SHA256="53558f8f24cd8ab6fa0ea252ca8198e2650160649681ce5230c1df1dc2b52faf" PHP_MD5=""
+ENV PHP_VERSION 7.4.9
+ENV PHP_URL="https://www.php.net/get/php-7.4.9.tar.xz/from/this/mirror" PHP_ASC_URL="https://www.php.net/get/php-7.4.9.tar.xz.asc/from/this/mirror"
+ENV PHP_SHA256="23733f4a608ad1bebdcecf0138ebc5fd57cf20d6e0915f98a9444c3f747dc57b" PHP_MD5=""
 
 RUN set -eux; \
 	\

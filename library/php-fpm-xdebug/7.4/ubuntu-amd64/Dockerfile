@@ -1,4 +1,4 @@
-FROM antonchernik/php-fpm:7.4.7-ubuntu-amd64
+FROM antonchernik/php-fpm:7.4.9-ubuntu-amd64
 
 RUN apt-get update \
     && apt-get upgrade -y \
@@ -39,7 +39,7 @@ RUN \
     rm -rf /tmp/pecl-gearman && \
     docker-php-ext-enable gearman
 
-RUN pecl install redis-5.2.2 && \
+RUN pecl install redis-5.3.1 && \
     docker-php-ext-enable redis
 
 RUN apt-get update && apt-get install -y libmemcached-dev zlib1g-dev \
