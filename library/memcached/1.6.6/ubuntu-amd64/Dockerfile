@@ -77,8 +77,10 @@ RUN set -x \
 		| xargs -r apt-mark manual \
 	&& memcached -V
 
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
+COPY docker-php-entrypoint /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-php-entrypoint
+
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 USER memcache
