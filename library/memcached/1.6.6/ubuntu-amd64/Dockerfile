@@ -72,9 +72,7 @@ RUN set -x \
 		| cut -d: -f1 \
 		| sort -u \
 		| xargs -r apt-mark manual \
-	&& memcached -V \
-	\
-	&& apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
+	&& memcached -V
 
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
