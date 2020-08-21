@@ -77,11 +77,10 @@ RUN set -x \
 		| xargs -r apt-mark manual \
 	&& memcached -V
 
-COPY docker-php-entrypoint /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-php-entrypoint
+COPY docker-entrypoint /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint
 
-
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint"]
 
 USER memcache
 EXPOSE 11211
