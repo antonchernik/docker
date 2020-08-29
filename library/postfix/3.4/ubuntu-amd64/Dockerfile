@@ -16,7 +16,7 @@ RUN \
 RUN postconf -e mail_spool_directory="/var/spool/mail/"
 RUN postconf -e mailbox_command=""
 RUN postconf -e inet_protocols="ipv4"
-RUN postconf -e mynetworks="127.0.0.0/8 172.16.238.0/24 [::ffff:127.0.0.0]/104 [::1]/128"
+RUN postconf -e mynetworks="127.0.0.0/8 192.168.1.0/24 192.168.2.0/24 192.168.3.0/24 [::ffff:127.0.0.0]/104 [::1]/128"
 RUN postconf -e always_add_missing_headers="yes"
 
 RUN echo 'SYSLOGNG_OPTS="--no-caps"' >> /etc/default/syslog-ng
