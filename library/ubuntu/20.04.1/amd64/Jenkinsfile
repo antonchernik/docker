@@ -15,7 +15,7 @@ pipeline {
                 script {
                     (new CleanWorkspace(this)).run(pwd())
                     gitUtils.configureIdentity GIT_USER_NAME, GIT_USER_EMAIL
-                    gitUtils.checkoutReference 'master', 'git@github.com:antonchernik/docker.git', "${GIT_CREDENTIALS_ID}"
+                    gitUtils.checkoutReference 'master', 'git@github.com:antonchernik/docker.git', GIT_CREDENTIALS_ID
                     dir("library/${IMAGE_NAME}/${IMAGE_VERSION}/${IMAGE_ARCHITECTURE}") {
                         curlUtils.download 'https://partner-images.canonical.com/core/focal/current/ubuntu-focal-core-cloudimg-amd64-root.tar.gz', 'ubuntu-focal-core-cloudimg-amd64-root.tar.gz', "."
                     }
