@@ -1,7 +1,7 @@
 FROM antonchernik/ubuntu:20.04.1-amd64
 
 ENV NGINX_VERSION 1.18.0-1~focal
-ENV NJS_VERSION   1.18.0.0.3.9-1~focal
+ENV NJS_VERSION   1.18.0+0.5.0-1~focal
 
 RUN set -x \
 	&& apt-get update \

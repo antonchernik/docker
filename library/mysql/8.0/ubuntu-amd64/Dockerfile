@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     openssl
 
 # add gosu for easy step-down from root
-ENV GOSU_VERSION 1.11
+ENV GOSU_VERSION 1.12
 RUN set -x \
 	&& apt-get update && apt-get install -y --no-install-recommends ca-certificates wget && rm -rf /var/lib/apt/lists/* \
 	&& wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture)" \
@@ -44,7 +44,7 @@ RUN set -ex; \
 RUN rm -rf /var/lib/apt/lists/*
 
 ENV MYSQL_MAJOR 8.0
-ENV MYSQL_VERSION 8.0.21-1ubuntu20.04
+ENV MYSQL_VERSION 8.0.22-1ubuntu20.04
 
 RUN echo "deb http://repo.mysql.com/apt/ubuntu/ focal mysql-${MYSQL_MAJOR}" > /etc/apt/sources.list.d/mysql.list
 
