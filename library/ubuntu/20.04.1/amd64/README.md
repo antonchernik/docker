@@ -4,7 +4,7 @@
 
 This image is built from official rootfs tarballs provided by Canonical (specifically, https://partner-images.canonical.com/core/).
 ### Supported tags and respective Dockerfile links
-<br />
+<br/>
 
   Locale: en_US.UTF-8
   Time zone: UTC
