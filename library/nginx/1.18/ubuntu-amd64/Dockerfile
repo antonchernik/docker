@@ -8,7 +8,7 @@ FROM antonchernik/ubuntu:20.04.1-amd64
 LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
 
 ENV NGINX_VERSION   1.18.0
-ENV NJS_VERSION     0.5.0
+ENV NJS_VERSION     0.4.1
 ENV PKG_RELEASE     1~focal
 
 RUN set -x \
@@ -37,7 +37,7 @@ RUN set -x \
         nginx-module-xslt=${NGINX_VERSION}-${PKG_RELEASE} \
         nginx-module-geoip=${NGINX_VERSION}-${PKG_RELEASE} \
         nginx-module-image-filter=${NGINX_VERSION}-${PKG_RELEASE} \
-        nginx-module-njs=${NGINX_VERSION}+${NJS_VERSION}-${PKG_RELEASE} \
+        nginx-module-njs=${NGINX_VERSION}.${NJS_VERSION}-${PKG_RELEASE} \
     " \
     && case "$dpkgArch" in \
         amd64|i386|arm64) \
