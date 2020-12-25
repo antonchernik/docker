@@ -146,8 +146,8 @@
             "V3Score": 7.5
           },
           "redhat": {
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:L",
-            "V3Score": 2.6
+            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:H",
+            "V3Score": 4.8
           }
         },
         "References": [
@@ -258,8 +258,8 @@
             "V3Score": 7.5
           },
           "redhat": {
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:L",
-            "V3Score": 2.6
+            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:H",
+            "V3Score": 4.8
           }
         },
         "References": [
@@ -435,7 +435,16 @@
         "Title": "p11-kit: out-of-bounds read in p11_rpc_buffer_get_byte_array function in rpc-message.c",
         "Description": "An issue was discovered in p11-kit 0.21.1 through 0.23.21. A heap-based buffer over-read has been discovered in the RPC protocol used by thep11-kit server/remote commands and the client library. When the remote entity supplies a byte array through a serialized PKCS#11 function call, the receiving entity may allow the reading of up to 4 bytes of memory past the heap allocation.",
         "Severity": "MEDIUM",
+        "CweIDs": [
+          "CWE-125"
+        ],
         "CVSS": {
+          "nvd": {
+            "V2Vector": "AV:N/AC:L/Au:N/C:P/I:N/A:P",
+            "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H",
+            "V2Score": 6.4,
+            "V3Score": 9.1
+          },
           "redhat": {
             "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
             "V3Score": 7.5
@@ -449,7 +458,7 @@
           "https://lists.freedesktop.org/archives/p11-glue/2020-December/000712.html"
         ],
         "PublishedDate": "2020-12-16T14:15:00Z",
-        "LastModifiedDate": "2020-12-16T14:16:00Z"
+        "LastModifiedDate": "2020-12-23T15:33:00Z"
       },
       {
         "VulnerabilityID": "CVE-2020-29363",
@@ -463,7 +472,16 @@
         "Title": "p11-kit: out-of-bounds write in p11_rpc_buffer_get_byte_array_value function in rpc-message.c",
         "Description": "An issue was discovered in p11-kit 0.23.6 through 0.23.21. A heap-based buffer overflow has been discovered in the RPC protocol used by p11-kit server/remote commands and the client library. When the remote entity supplies a serialized byte array in a CK_ATTRIBUTE, the receiving entity may not allocate sufficient length for the buffer to store the deserialized value.",
         "Severity": "MEDIUM",
+        "CweIDs": [
+          "CWE-787"
+        ],
         "CVSS": {
+          "nvd": {
+            "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+            "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "V2Score": 7.5,
+            "V3Score": 9.8
+          },
           "redhat": {
             "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
             "V3Score": 7.5
@@ -477,7 +495,7 @@
           "https://lists.freedesktop.org/archives/p11-glue/2020-December/000712.html"
         ],
         "PublishedDate": "2020-12-16T14:15:00Z",
-        "LastModifiedDate": "2020-12-16T14:16:00Z"
+        "LastModifiedDate": "2020-12-23T15:32:00Z"
       },
       {
         "VulnerabilityID": "CVE-2017-11164",
@@ -594,7 +612,7 @@
         "PkgName": "libsqlite3-0",
         "InstalledVersion": "3.31.1-4ubuntu0.2",
         "Layer": {
-          "DiffID": "sha256:b2031130b061faaec31a2cc2f0b3cb0b58a819130a950a08e2ae9cb3e706e967"
+          "DiffID": "sha256:a0ac5afd9901e2ab2c72b630bf02e17679121acf04348ecfacfcfdfc1c778771"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-9794",
@@ -742,7 +760,7 @@
         "PkgName": "locales",
         "InstalledVersion": "2.31-0ubuntu9.1",
         "Layer": {
-          "DiffID": "sha256:b2031130b061faaec31a2cc2f0b3cb0b58a819130a950a08e2ae9cb3e706e967"
+          "DiffID": "sha256:a0ac5afd9901e2ab2c72b630bf02e17679121acf04348ecfacfcfdfc1c778771"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-29562",
@@ -760,8 +778,8 @@
             "V3Score": 7.5
           },
           "redhat": {
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:L",
-            "V3Score": 2.6
+            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:H",
+            "V3Score": 4.8
           }
         },
         "References": [
@@ -777,7 +795,7 @@
         "PkgName": "locales",
         "InstalledVersion": "2.31-0ubuntu9.1",
         "Layer": {
-          "DiffID": "sha256:b2031130b061faaec31a2cc2f0b3cb0b58a819130a950a08e2ae9cb3e706e967"
+          "DiffID": "sha256:a0ac5afd9901e2ab2c72b630bf02e17679121acf04348ecfacfcfdfc1c778771"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2016-10228",
@@ -815,7 +833,7 @@
         "PkgName": "locales",
         "InstalledVersion": "2.31-0ubuntu9.1",
         "Layer": {
-          "DiffID": "sha256:b2031130b061faaec31a2cc2f0b3cb0b58a819130a950a08e2ae9cb3e706e967"
+          "DiffID": "sha256:a0ac5afd9901e2ab2c72b630bf02e17679121acf04348ecfacfcfdfc1c778771"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-6096",
