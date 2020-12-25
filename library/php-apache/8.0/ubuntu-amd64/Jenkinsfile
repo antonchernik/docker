@@ -29,7 +29,7 @@ pipeline {
                     component["vcsRef"] = gitUtils.getCommitId 'HEAD', false
                     component["dockerContext"] = "-f ./Dockerfile ."
                     dir("library/${IMAGE_NAME}/${VERSION}/${IMAGE_ARCHITECTURE}") {
-                        dockerUtils.buildImage component, true, false, DOCKER_REGISTRY_FQDN, DOCKER_CREDENTIALS_ID
+                        dockerUtils.buildImage component, true, true, DOCKER_REGISTRY_FQDN, DOCKER_CREDENTIALS_ID
                     }
                 }
             }
@@ -54,6 +54,7 @@ pipeline {
                 script {
                     gitUtils.removeUntrackedFilesAndDirectories(pwd())
                     dockerUtils.removeImage "${DOCKER_NS}/${IMAGE_NAME}:${IMAGE_VERSION}-${IMAGE_ARCHITECTURE}"
+                    dockerUtils.removeImage "${DOCKER_NS}/${IMAGE_NAME}:latest"
                 }
             }
         }
