@@ -303,8 +303,7 @@ RUN docker-php-ext-enable sodium; \
     apt-get install -y libmcrypt-dev; \
     pecl install mcrypt-1.0.4; \
     docker-php-ext-enable mcrypt; \
-    apt autoremove -y; \
-    rm -rf /var/lib/{apt,dpkg,cache,log}/
+    apt autoremove -y
 
 ENTRYPOINT ["docker-php-entrypoint"]
 # https://httpd.apache.org/docs/2.4/stopping.html#gracefulstop
