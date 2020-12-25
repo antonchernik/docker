@@ -239,12 +239,9 @@ COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-php-*
 
 # sodium was built as a shared module (so that it can be replaced later if so desired), so let's enable it too (https://github.com/docker-library/php/issues/598)
-RUN docker-php-ext-enable sodium; \
-    apt-get update; \
-    apt-get install -y libmcrypt-dev; \
-    pecl install mcrypt-1.0.4; \
-    docker-php-ext-enable mcrypt; \
-    apt autoremove -y
+RUN docker-php-ext-enable sodium \
+    && pecl install mcrypt-1.0.4 \
+    && docker-php-ext-enable mcrypt
 
 ENTRYPOINT ["docker-php-entrypoint"]
 WORKDIR /var/www/html
