@@ -1,8 +1,5 @@
 FROM scratch
 ADD ubuntu-focal-core-cloudimg-amd64-root.tar.gz /
-# verify that the APT lists files do not exist
-RUN [ -z "$(apt-get indextargets)" ]
-# (see https://bugs.launchpad.net/cloud-images/+bug/1699913)
 
 # a few minor docker-specific tweaks
 # see https://github.com/docker/docker/blob/9a9fc01af8fb5d98b8eec0740716226fadb3735c/contrib/mkimage/debootstrap
@@ -33,27 +30,22 @@ RUN set -xe \
 	&& echo 'Acquire::GzipIndexes "true"; Acquire::CompressionTypes::Order:: "gz";' > /etc/apt/apt.conf.d/docker-gzip-indexes \
 	\
 # https://github.com/docker/docker/blob/9a9fc01af8fb5d98b8eec0740716226fadb3735c/contrib/mkimage/debootstrap#L134-L151
-	&& echo 'Apt::AutoRemove::SuggestsImportant "false";' > /etc/apt/apt.conf.d/docker-autoremove-suggests
-
+	&& echo 'Apt::AutoRemove::SuggestsImportant "false";' > /etc/apt/apt.conf.d/docker-autoremove-suggests \
 # make systemd-detect-virt return "docker"
 # See: https://github.com/systemd/systemd/blob/aa0c34279ee40bce2f9681b496922dedbadfca19/src/basic/virt.c#L434
-RUN mkdir -p /run/systemd && echo 'docker' > /run/systemd/container
-
-ENV DEBIAN_FRONTEND noninteractive
-
-RUN set -x && \
-	apt-get update -y && \
-	apt-get upgrade -y && \
-    DEBIAN_FRONTEND=noninteractive  apt-get install --no-install-recommends --no-install-suggests -y language-pack-en \
-    vim \
-    tzdata && \
-    update-alternatives --set editor /usr/bin/vim.basic && \
-    update-locale LANG=en_US.UTF-8 && \
-    rm /etc/localtime && \
-    ln -snf /usr/share/zoneinfo/UTC /etc/localtime && \
-    dpkg-reconfigure -f noninteractive tzdata && \
-    apt-get clean && \
-    rm -r /var/lib/apt/lists/*
+    && mkdir -p /run/systemd && echo 'docker' > /run/systemd/container \
+	&& apt-get update -y \
+	&& apt-get upgrade -y \
+    && DEBIAN_FRONTEND=noninteractive  apt-get install --no-install-recommends --no-install-suggests -y language-pack-en \
+        vim \
+        tzdata \
+    && update-alternatives --set editor /usr/bin/vim.basic \
+    && update-locale LANG=en_US.UTF-8 \
+    && rm /etc/localtime \
+    && ln -snf /usr/share/zoneinfo/UTC /etc/localtime \
+    && dpkg-reconfigure -f noninteractive tzdata \
+    && apt-get clean \
+    && rm -r /var/lib/apt/lists/*
 
 # overwrite this with 'CMD []' in a dependent Dockerfile
 CMD ["/bin/bash"]
