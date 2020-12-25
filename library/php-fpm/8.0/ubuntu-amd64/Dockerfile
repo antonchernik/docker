@@ -245,8 +245,6 @@ RUN docker-php-ext-enable sodium; \
     pecl install mcrypt-1.0.4; \
     docker-php-ext-enable mcrypt; \
     apt autoremove -y; \
-    apt-get clean autoclean; \
-    apt-get autoremove --yes; \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 ENTRYPOINT ["docker-php-entrypoint"]
