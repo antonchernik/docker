@@ -612,7 +612,7 @@
         "PkgName": "libsqlite3-0",
         "InstalledVersion": "3.31.1-4ubuntu0.2",
         "Layer": {
-          "DiffID": "sha256:a0ac5afd9901e2ab2c72b630bf02e17679121acf04348ecfacfcfdfc1c778771"
+          "DiffID": "sha256:39e4ffae3d9b9e9100e934b9ddb77d372e75d499bfffd4b55ad4bce292b91c1d"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-9794",
@@ -760,7 +760,7 @@
         "PkgName": "locales",
         "InstalledVersion": "2.31-0ubuntu9.1",
         "Layer": {
-          "DiffID": "sha256:a0ac5afd9901e2ab2c72b630bf02e17679121acf04348ecfacfcfdfc1c778771"
+          "DiffID": "sha256:39e4ffae3d9b9e9100e934b9ddb77d372e75d499bfffd4b55ad4bce292b91c1d"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-29562",
@@ -795,7 +795,7 @@
         "PkgName": "locales",
         "InstalledVersion": "2.31-0ubuntu9.1",
         "Layer": {
-          "DiffID": "sha256:a0ac5afd9901e2ab2c72b630bf02e17679121acf04348ecfacfcfdfc1c778771"
+          "DiffID": "sha256:39e4ffae3d9b9e9100e934b9ddb77d372e75d499bfffd4b55ad4bce292b91c1d"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2016-10228",
@@ -833,7 +833,7 @@
         "PkgName": "locales",
         "InstalledVersion": "2.31-0ubuntu9.1",
         "Layer": {
-          "DiffID": "sha256:a0ac5afd9901e2ab2c72b630bf02e17679121acf04348ecfacfcfdfc1c778771"
+          "DiffID": "sha256:39e4ffae3d9b9e9100e934b9ddb77d372e75d499bfffd4b55ad4bce292b91c1d"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-6096",
