@@ -38,4 +38,4 @@ listen = 0.0.0.0:9000
 ### Stop with command:
 > docker-compose down
 ### Supported tags and respective Dockerfile links
-<br/>
+<br/>* 8.0.0 Dockerfile [(library/php-fpm/8.0/ubuntu-amd64/Dockerfile)](https://github.com/antonchernik/docker/blob/php-fpm-8.0.0-ubuntu-amd64/library/php-fpm/8.0/ubuntu-amd64/Dockerfile)<br />Trivy security report [(library/php-fpm/8.0/ubuntu-amd64/trivy.json)](https://github.com/antonchernik/docker/blob/php-fpm-8.0.0-ubuntu-amd64/library/php-fpm/8.0/ubuntu-amd64/trivy.json)<br />
