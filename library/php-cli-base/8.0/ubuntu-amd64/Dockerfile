@@ -10,9 +10,9 @@ ENV APP_NAME=${APP_NAME:-'no-name-defined'} \
     COMPOSER_ALLOW_SUPERUSER=1 \
     COMPOSER_HOME=/home/app \
     COMPOSER_VERSION=2.0.8 \
-    HOME=/home/app \
+    HOME=/home/app
 
-COPY ./bin/init-container /usr/local/bin/init-container
+COPY bin/init-container /usr/local/bin/init-container
 
 RUN set -eux; \
     useradd -ms /bin/bash app \
