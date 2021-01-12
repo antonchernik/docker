@@ -1,4 +1,4 @@
-FROM antonchernik/php-fpm:7.4.13-ubuntu-amd64
+FROM antonchernik/php-fpm:7.4.14-ubuntu-amd64
 
 RUN apt-get update \
     && apt-get upgrade -y \
