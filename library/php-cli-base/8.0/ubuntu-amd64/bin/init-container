@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -e
+set -o pipefail
+
+[ -d "/opt/scripts/init" ] && chmod +x -R /opt/scripts/init && run-parts /opt/scripts/init --verbose --exit-on-error
