@@ -1,0 +1,75 @@
+#!/usr/bin/env groovy
+@Library('shared-library') _
+import com.exactways.helper.*;
+
+pipeline {
+    agent {
+        label 'agent_ubuntu_20_04'
+    }
+    options {
+        ansiColor('xterm')
+    }
+    stages {
+        stage('Prepare') {
+            steps {
+                script {
+                    (new CleanWorkspace(this)).run(pwd())
+                    gitUtils.configureIdentity GIT_USER_NAME, GIT_USER_EMAIL
+                    gitUtils.checkoutReference 'master', 'git@github.com:antonchernik/docker.git', GIT_CREDENTIALS_ID
+                }
+            }
+        }
+        stage('Build & push') {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: GITHUB_API_TOKEN_ID, variable: 'GITHUB_API_TOKEN')]) {
+                        def component = [:]
+                        component["imageName"] = "${DOCKER_NS}"
+                        component["artifactVersion"] = "${IMAGE_NAME}-${IMAGE_VERSION}-${IMAGE_ARCHITECTURE}"
+                        component["commitDate"] = gitUtils.getCommitTimestamp 'HEAD'
+                        component["vcsRef"] = gitUtils.getCommitId 'HEAD', false
+                        component["dockerContext"] = "--build-arg GITHUB_API_TOKEN=${GITHUB_API_TOKEN} -f ./Dockerfile ."
+                        dir("library/${IMAGE_NAME}/${VERSION}/${IMAGE_ARCHITECTURE}") {
+                            dockerUtils.buildImage component, true, true, DOCKER_REGISTRY_FQDN, DOCKER_CREDENTIALS_ID
+                        }
+                    }
+                }
+            }
+        }
+        stage('Vulnerabilities check') {
+            steps {
+                script {
+                    trivyUtils.checkImage "${DOCKER_NS}:${IMAGE_NAME}-${IMAGE_VERSION}-${IMAGE_ARCHITECTURE}", "library/${IMAGE_NAME}/${VERSION}/${IMAGE_ARCHITECTURE}/trivy.json"
+                }
+            }
+        }
+        stage('Cleanup') {
+            steps {
+                script {
+                    gitUtils.removeUntrackedFilesAndDirectories(pwd())
+                    dockerUtils.removeImage "${DOCKER_NS}:${IMAGE_NAME}-${IMAGE_VERSION}-${IMAGE_ARCHITECTURE}"
+                }
+            }
+        }
+        stage('Commit all changes') {
+            steps {
+                script {
+                    def dir = pwd() + "/library/${IMAGE_NAME}/${VERSION}/${IMAGE_ARCHITECTURE}"
+                    def files = ["trivy.json"]
+                    gitUtils.commitChanges dir, "Updates readme for ${IMAGE_NAME} ${IMAGE_VERSION} and architecture ${IMAGE_ARCHITECTURE}", files
+                }
+            }
+        }
+        stage('Add tag') {
+            steps {
+                script {
+                    def tag = "${IMAGE_NAME}-${IMAGE_VERSION}-${IMAGE_ARCHITECTURE}"
+                    def tagMessage = "Build ${IMAGE_VERSION} for architecture ${IMAGE_ARCHITECTURE}"
+                    def gitHelper = new Git(this, GIT_CREDENTIALS_ID);
+                    gitHelper.addTag(pwd(), tag, tagMessage)
+                    gitHelper.push(pwd(), "HEAD:master")
+                }
+            }
+        }
+    }
+}

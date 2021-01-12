@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+_term() {
+  echo "Caught SIGTERM signal!"
+   php bin/console swoole:server:stop
+}
+
+add_opcache_preload() {
+  SYMFONY_PRELOAD_FILE=/home/app/project/var/cache/prod/App_KernelProdContainer.preload.php
+  PHP_OPCACHE_PRELOAD_FILE=/usr/local/etc/php/conf.d/opcache_preload.ini
+  if [[ -f "$SYMFONY_PRELOAD_FILE" ]] && [ "$APP_ENV" == "prod" ] && [[ -w "$PHP_OPCACHE_PRELOAD_FILE" ]]; then
+      echo 'opcache.preload=/home/app/project/var/cache/prod/App_KernelProdContainer.preload.php' > /usr/local/etc/php/conf.d/opcache_preload.ini
+  fi
+}
+
+trap _term SIGTERM
+
+# run ppm
+if [ "$APP_RUN_SERVER" == "yes" ]; then
+    php bin/console cache:warmup --env=$APP_ENV --no-debug
+    add_opcache_preload
+    php bin/console swoole:server:start --port "${APP_PORT}" --env="$APP_ENV" --no-debug &
+else
+    sleep infinity &
+fi
+
+child=$!
+
+wait $child
