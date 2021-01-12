@@ -36,7 +36,7 @@ RUN set -eux; \
     && pecl install swoole-4.5.10 \
 	&& docker-php-ext-enable swoole \
     && pecl install redis-5.3.2  \
-    && docker-php-ext-enable redis
+    && docker-php-ext-enable redis \
     && pecl install memcached-3.1.5 \
     && docker-php-ext-enable memcached \
     && pecl install mongodb-1.9.0 \
