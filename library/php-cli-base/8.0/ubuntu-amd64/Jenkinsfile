@@ -22,14 +22,16 @@ pipeline {
         stage('Build & push') {
             steps {
                 script {
-                    def component = [:]
-                    component["imageName"] = "${DOCKER_NS}"
-                    component["artifactVersion"] = "${IMAGE_NAME}-${IMAGE_VERSION}-${IMAGE_ARCHITECTURE}"
-                    component["commitDate"] = gitUtils.getCommitTimestamp 'HEAD'
-                    component["vcsRef"] = gitUtils.getCommitId 'HEAD', false
-                    component["dockerContext"] = "--build-arg GITHUB_API_TOKEN=${GITHUB_API_TOKEN} -f ./Dockerfile ."
-                    dir("library/${IMAGE_NAME}/${VERSION}/${IMAGE_ARCHITECTURE}") {
-                        dockerUtils.buildImage component, true, true, DOCKER_REGISTRY_FQDN, DOCKER_CREDENTIALS_ID
+                    withCredentials([string(credentialsId: GITHUB_API_TOKEN_ID, variable: 'GITHUB_API_TOKEN')]) {
+                        def component = [:]
+                        component["imageName"] = "${DOCKER_NS}"
+                        component["artifactVersion"] = "${IMAGE_NAME}-${IMAGE_VERSION}-${IMAGE_ARCHITECTURE}"
+                        component["commitDate"] = gitUtils.getCommitTimestamp 'HEAD'
+                        component["vcsRef"] = gitUtils.getCommitId 'HEAD', false
+                        component["dockerContext"] = "--build-arg GITHUB_API_TOKEN=${GITHUB_API_TOKEN} -f ./Dockerfile ."
+                        dir("library/${IMAGE_NAME}/${VERSION}/${IMAGE_ARCHITECTURE}") {
+                            dockerUtils.buildImage component, true, true, DOCKER_REGISTRY_FQDN, DOCKER_CREDENTIALS_ID
+                        }
                     }
                 }
             }
