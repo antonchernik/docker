@@ -4,6 +4,7 @@
 set -e
 
 ME=$(basename $0)
+ID="debian"
 DEFAULT_CONF_FILE="etc/nginx/conf.d/default.conf"
 
 # check if we have ipv6 available
