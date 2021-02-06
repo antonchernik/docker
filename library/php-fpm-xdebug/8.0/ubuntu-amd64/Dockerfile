@@ -41,8 +41,10 @@ RUN apt-get update && apt-get install -y libmemcached-dev zlib1g-dev \
     && docker-php-ext-enable memcached
 
 RUN apt-get update && apt-get install -y librabbitmq-dev libssh-dev \
-    && pecl install amqp-1.10.2 \
-    && docker-php-ext-enable amqp
+    && docker-php-source extract \
+    && git clone --branch $EXT_AMQP_VERSION --depth 1 https://github.com/php-amqp/php-amqp.git /usr/src/php/ext/amqp \
+    && cd /usr/src/php/ext/amqp && git submodule update --init \
+    && docker-php-ext-install amqp
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
