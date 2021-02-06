@@ -40,6 +40,10 @@ RUN apt-get update && apt-get install -y libmemcached-dev zlib1g-dev \
     && pecl install memcached-3.1.5 \
     && docker-php-ext-enable memcached
 
+RUN apt-get update && apt-get install -y librabbitmq-dev libssh-dev \
+    && pecl install amqp-1.10.2 \
+    && docker-php-ext-enable amqp
+
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
