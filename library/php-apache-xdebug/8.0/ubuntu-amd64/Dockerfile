@@ -40,16 +40,19 @@ RUN apt-get update && apt-get install -y libmemcached-dev zlib1g-dev \
     && pecl install memcached-3.1.5 \
     && docker-php-ext-enable memcached
 
+ENV EXT_AMQP_VERSION=master
 RUN apt-get update && apt-get install -y librabbitmq-dev libssh-dev \
-    && pecl install amqp-1.10.2 \
-    && docker-php-ext-enable amqp
+    && docker-php-source extract \
+    && git clone --branch $EXT_AMQP_VERSION --depth 1 https://github.com/php-amqp/php-amqp.git /usr/src/php/ext/amqp \
+    && cd /usr/src/php/ext/amqp && git submodule update --init \
+    && docker-php-ext-install amqp
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
-RUN curl -OL http://get.sensiolabs.org/security-checker.phar \
-    && chmod +x security-checker.phar \
-    && mv security-checker.phar /usr/local/bin/security-checker
+#RUN curl -OL http://get.sensiolabs.org/security-checker.phar \
+#    && chmod +x security-checker.phar \
+#    && mv security-checker.phar /usr/local/bin/security-checker
 
 RUN curl -OL https://phar.phpunit.de/phpunit-9.phar \
     && chmod +x phpunit-9.phar \

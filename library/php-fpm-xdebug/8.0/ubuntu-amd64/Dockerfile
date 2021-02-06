@@ -39,6 +39,7 @@ RUN pecl install redis-5.3.2 && \
 RUN apt-get update && apt-get install -y libmemcached-dev zlib1g-dev \
     && pecl install memcached-3.1.5 \
     && docker-php-ext-enable memcached
+
 ENV EXT_AMQP_VERSION=master
 RUN apt-get update && apt-get install -y librabbitmq-dev libssh-dev \
     && docker-php-source extract \
@@ -49,9 +50,9 @@ RUN apt-get update && apt-get install -y librabbitmq-dev libssh-dev \
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
-RUN curl -OL http://get.sensiolabs.org/security-checker.phar \
-    && chmod +x security-checker.phar \
-    && mv security-checker.phar /usr/local/bin/security-checker
+#RUN curl -OL http://get.sensiolabs.org/security-checker.phar \
+#    && chmod +x security-checker.phar \
+#    && mv security-checker.phar /usr/local/bin/security-checker
 
 RUN curl -OL https://phar.phpunit.de/phpunit-9.phar \
     && chmod +x phpunit-9.phar \
