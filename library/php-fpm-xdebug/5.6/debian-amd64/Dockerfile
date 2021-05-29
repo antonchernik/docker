@@ -51,7 +51,7 @@ RUN set -x\
     && docker-php-ext-enable memcached \
     && pecl install imagick \
 	&& docker-php-ext-enable imagick \
-	&& pecl install gearman \
+	&& pecl install gearman-1.1.2 \
     && docker-php-ext-enable gearman \
     && apt-get clean \
     && rm -r /var/lib/apt/lists/*
