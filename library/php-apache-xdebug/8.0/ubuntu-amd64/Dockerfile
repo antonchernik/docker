@@ -1,4 +1,4 @@
-FROM antonchernik/php-apache:8.0.1-ubuntu-amd64
+FROM antonchernik/php-apache:8.0.6-ubuntu-amd64
 
 RUN apt-get update \
     && apt-get upgrade -y \

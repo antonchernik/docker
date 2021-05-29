@@ -1,4 +1,4 @@
-FROM antonchernik/images:php-cli-base-8.0.1-ubuntu-amd64
+FROM antonchernik/images:php-cli-base-8.0.6-ubuntu-amd64
 
 ENV APP_RUN_SERVER=yes \
     APP_ENV=prod \
@@ -6,7 +6,7 @@ ENV APP_RUN_SERVER=yes \
     APP_DEBUG=no \
     APP_XDEBUG=no
 
-RUN pecl install swoole-4.5.10 \
+RUN pecl install swoole-4.6.7 \
     && docker-php-ext-enable swoole
 
 COPY conf.d /usr/local/etc/php/conf.d
