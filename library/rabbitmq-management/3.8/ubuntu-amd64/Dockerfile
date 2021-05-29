@@ -1,4 +1,4 @@
-FROM antonchernik/rabbitmq:3.8.9-ubuntu-amd64
+FROM antonchernik/rabbitmq:3.8.16-ubuntu-amd64
 
 RUN rabbitmq-plugins enable --offline rabbitmq_management
 
