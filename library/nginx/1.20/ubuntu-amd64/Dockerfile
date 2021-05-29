@@ -8,7 +8,7 @@ FROM antonchernik/ubuntu:20.04.1-amd64
 LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
 
 ENV NGINX_VERSION   1.20.1
-ENV NJS_VERSION     0.5.3-1
+ENV NJS_VERSION     0.5.3
 ENV PKG_RELEASE     1~focal
 
 RUN set -x \
