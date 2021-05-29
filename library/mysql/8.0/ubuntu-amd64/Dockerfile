@@ -44,7 +44,7 @@ RUN set -ex; \
 RUN rm -rf /var/lib/apt/lists/*
 
 ENV MYSQL_MAJOR 8.0
-ENV MYSQL_VERSION 8.0.22-1ubuntu20.04
+ENV MYSQL_VERSION 8.0.25-1ubuntu20.04
 
 RUN echo "deb http://repo.mysql.com/apt/ubuntu/ focal mysql-${MYSQL_MAJOR}" > /etc/apt/sources.list.d/mysql.list
 
