@@ -88,7 +88,7 @@ RUN set -ex; \
 	apt-key list
 
 ENV PG_MAJOR 12
-ENV PG_VERSION 12.5-1.pgdg20.04+1
+ENV PG_VERSION 12.7-1.pgdg20.04+1
 
 RUN set -ex; \
 	\
