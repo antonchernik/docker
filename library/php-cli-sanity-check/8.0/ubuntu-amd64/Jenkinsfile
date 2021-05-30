@@ -24,8 +24,8 @@ pipeline {
                 script {
                     withCredentials([string(credentialsId: GITHUB_API_TOKEN_ID, variable: 'GITHUB_API_TOKEN')]) {
                         def component = [:]
-                        component["imageName"] = "${DOCKER_NS}"
-                        component["artifactVersion"] = "${IMAGE_NAME}-${IMAGE_VERSION}-${IMAGE_ARCHITECTURE}"
+                        component["imageName"] = "${DOCKER_NS}/${IMAGE_NAME}"
+                        component["artifactVersion"] = "${IMAGE_VERSION}-${IMAGE_ARCHITECTURE}"
                         component["commitDate"] = gitUtils.getCommitTimestamp 'HEAD'
                         component["vcsRef"] = gitUtils.getCommitId 'HEAD', false
                         component["dockerContext"] = "--build-arg GITHUB_API_TOKEN=${GITHUB_API_TOKEN} -f ./Dockerfile ."
