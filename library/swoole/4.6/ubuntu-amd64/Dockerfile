@@ -1,4 +1,4 @@
-FROM antonchernik/images:php-cli-base-8.0.6-ubuntu-amd64
+FROM antonchernik/php-cli-base:8.0.6-ubuntu-amd64
 
 ENV APP_RUN_SERVER=yes \
     APP_ENV=prod \
