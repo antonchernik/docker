@@ -1,4 +1,4 @@
-FROM antonchernik/php-apache:8.0.6-ubuntu-amd64
+FROM antonchernik/php-apache:8.0.8-ubuntu-amd64
 
 RUN apt-get update \
     && apt-get upgrade -y \
@@ -10,12 +10,12 @@ RUN apt-get update \
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
-ENV COMPOSER_VERSION 2.0.8
+ENV COMPOSER_VERSION 2.1.3
 
 RUN set -eux; \
   curl --silent --fail --location --retry 3 --output /tmp/installer.php --url https://raw.githubusercontent.com/composer/getcomposer.org/cb19f2aa3aeaa2006c0cd69a7ef011eb31463067/web/installer; \
   php -r " \
-    \$signature = '48e3236262b34d30969dca3c37281b3b4bbe3221bda826ac6a9a62d6444cdb0dcd0615698a5cbe587c3f0fe57a54d8f5'; \
+    \$signature = '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3'; \
     \$hash = hash('sha384', file_get_contents('/tmp/installer.php')); \
     if (!hash_equals(\$signature, \$hash)) { \
       unlink('/tmp/installer.php'); \
@@ -27,13 +27,13 @@ RUN set -eux; \
   rm -f /tmp/installer.php; \
   find /tmp -type d -exec chmod -v 1777 {} +
 
-RUN pecl install xdebug-3.0.1 \
+RUN pecl install xdebug-3.0.4 \
 	&& docker-php-ext-enable xdebug
 
-RUN pecl install swoole-4.5.10 \
+RUN pecl install swoole-4.6.7 \
 	&& docker-php-ext-enable swoole
 
-RUN pecl install redis-5.3.2 && \
+RUN pecl install redis-5.3.4 && \
     docker-php-ext-enable redis
 
 RUN apt-get update && apt-get install -y libmemcached-dev zlib1g-dev \
@@ -50,9 +50,9 @@ RUN apt-get update && apt-get install -y librabbitmq-dev libssh-dev \
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
-#RUN curl -OL http://get.sensiolabs.org/security-checker.phar \
-#    && chmod +x security-checker.phar \
-#    && mv security-checker.phar /usr/local/bin/security-checker
+RUN curl -o local-php-security-checker https://github.com/fabpot/local-php-security-checker/releases/download/v1.0.0/local-php-security-checker_1.0.0_linux_amd64 \
+    && chmod +x local-php-security-checker \
+    && mv local-php-security-checker /usr/local/bin/local-php-security-checker
 
 RUN curl -OL https://phar.phpunit.de/phpunit-9.phar \
     && chmod +x phpunit-9.phar \
