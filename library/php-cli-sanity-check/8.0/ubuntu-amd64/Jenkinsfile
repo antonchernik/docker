@@ -36,13 +36,13 @@ pipeline {
                 }
             }
         }
-        #stage('Vulnerabilities check') {
-        #    steps {
-        #        script {
-        #            trivyUtils.checkImage "${DOCKER_NS}:${IMAGE_NAME}-${IMAGE_VERSION}-${IMAGE_ARCHITECTURE}", "library/${IMAGE_NAME}/${VERSION}/${IMAGE_ARCHITECTURE}/trivy.json"
-        #        }
-        #    }
-        #}
+        //stage('Vulnerabilities check') {
+        //    steps {
+        //        script {
+        //            trivyUtils.checkImage "${DOCKER_NS}:${IMAGE_NAME}-${IMAGE_VERSION}-${IMAGE_ARCHITECTURE}", "library/${IMAGE_NAME}/${VERSION}/${IMAGE_ARCHITECTURE}/trivy.json"
+        //        }
+        //    }
+        //}
         stage('Cleanup') {
             steps {
                 script {
