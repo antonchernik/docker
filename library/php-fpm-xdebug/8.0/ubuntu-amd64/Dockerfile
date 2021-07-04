@@ -14,14 +14,6 @@ ENV COMPOSER_VERSION 2.1.3
 
 RUN set -eux; \
   curl --silent --fail --location --retry 3 --output /tmp/installer.php --url https://raw.githubusercontent.com/composer/getcomposer.org/cb19f2aa3aeaa2006c0cd69a7ef011eb31463067/web/installer; \
-  php -r " \
-    \$signature = '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3'; \
-    \$hash = hash('sha384', file_get_contents('/tmp/installer.php')); \
-    if (!hash_equals(\$signature, \$hash)) { \
-      unlink('/tmp/installer.php'); \
-      echo 'Integrity check failed, installer is either corrupt or worse.' . PHP_EOL; \
-      exit(1); \
-    }"; \
   php /tmp/installer.php --no-ansi --install-dir=/usr/bin --filename=composer --version=${COMPOSER_VERSION}; \
   composer --ansi --version --no-interaction; \
   rm -f /tmp/installer.php; \
