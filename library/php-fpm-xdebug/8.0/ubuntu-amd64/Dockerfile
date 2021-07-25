@@ -39,6 +39,11 @@ RUN apt-get update && apt-get install -y librabbitmq-dev libssh-dev \
     && cd /usr/src/php/ext/amqp && git submodule update --init \
     && docker-php-ext-install amqp
 
+RUN apt-get install -y libpq-dev \
+       && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+       && docker-php-ext-install pdo pgsql pdo_pgsql \
+       && docker-php-ext-enable pdo pgsql pdo_pgsql
+
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 

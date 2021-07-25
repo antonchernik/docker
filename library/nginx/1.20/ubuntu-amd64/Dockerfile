@@ -3,7 +3,7 @@
 #
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
-FROM antonchernik/ubuntu:20.04.1-amd64
+FROM antonchernik/ubuntu:20.04.2-amd64
 
 LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
 

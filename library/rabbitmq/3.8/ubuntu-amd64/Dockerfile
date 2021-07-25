@@ -1,6 +1,6 @@
 # The official Canonical Ubuntu Bionic image is ideal from a security perspective,
 # especially for the enterprises that we, the RabbitMQ team, have to deal with
-FROM antonchernik/ubuntu:20.04.1-amd64
+FROM antonchernik/ubuntu:20.04.2-amd64
 
 RUN set -eux; \
 	apt-get update; \

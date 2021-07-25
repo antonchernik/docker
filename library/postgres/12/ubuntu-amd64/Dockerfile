@@ -1,4 +1,4 @@
-FROM antonchernik/ubuntu:20.04.1-amd64
+FROM antonchernik/ubuntu:20.04.2-amd64
 
 RUN set -ex; \
 	if ! command -v gpg > /dev/null; then \

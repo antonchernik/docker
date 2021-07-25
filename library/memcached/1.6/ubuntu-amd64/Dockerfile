@@ -1,4 +1,4 @@
-FROM antonchernik/ubuntu:20.04.1-amd64
+FROM antonchernik/ubuntu:20.04.2-amd64
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN groupadd --system --gid 11211 memcache && useradd --system --gid memcache --uid 11211 memcache
