@@ -1,6 +1,7 @@
 [
   {
-    "Target": "antonchernik/ubuntu:20.04.1-amd64 (ubuntu 20.04)",
+    "Target": "antonchernik/ubuntu:20.04.2-amd64 (ubuntu 20.04)",
+    "Class": "os-pkgs",
     "Type": "ubuntu",
     "Vulnerabilities": [
       {
@@ -8,7 +9,7 @@
         "PkgName": "bash",
         "InstalledVersion": "5.0-6ubuntu1.1",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2019-18276",
@@ -49,7 +50,7 @@
         "PkgName": "coreutils",
         "InstalledVersion": "8.30-3ubuntu2",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2016-2781",
@@ -85,19 +86,265 @@
         "LastModifiedDate": "2021-02-25T17:15:00Z"
       },
       {
-        "VulnerabilityID": "CVE-2019-13050",
-        "PkgName": "gpgv",
-        "InstalledVersion": "2.2.19-3ubuntu2.1",
+        "VulnerabilityID": "CVE-2016-10228",
+        "PkgName": "libc-bin",
+        "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2019-13050",
-        "Title": "GnuPG: interaction between the sks-keyserver code and GnuPG allows for a Certificate Spamming Attack which leads to persistent DoS",
-        "Description": "Interaction between the sks-keyserver code through 1.2.0 of the SKS keyserver network, and GnuPG through 2.2.16, makes it risky to have a GnuPG keyserver configuration line referring to a host on the SKS keyserver network. Retrieving data from this network may cause a persistent denial of service, because of a Certificate Spamming Attack.",
+        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2016-10228",
+        "Title": "glibc: iconv program can hang when invoked with the -c option",
+        "Description": "The iconv program in the GNU C Library (aka glibc or libc6) 2.31 and earlier, when invoked with multiple suffixes in the destination encoding (TRANSLATE or IGNORE) along with the -c option, enters an infinite loop when processing invalid multi-byte input sequences, leading to a denial of service.",
         "Severity": "LOW",
         "CweIDs": [
-          "CWE-295"
+          "CWE-20"
+        ],
+        "CVSS": {
+          "nvd": {
+            "V2Vector": "AV:N/AC:M/Au:N/C:N/I:N/A:P",
+            "V3Vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "V2Score": 4.3,
+            "V3Score": 5.9
+          },
+          "redhat": {
+            "V3Vector": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
+            "V3Score": 3.3
+          }
+        },
+        "References": [
+          "http://openwall.com/lists/oss-security/2017/03/01/10",
+          "http://www.securityfocus.com/bid/96525",
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10228",
+          "https://linux.oracle.com/cve/CVE-2016-10228.html",
+          "https://linux.oracle.com/errata/ELSA-2021-9344.html",
+          "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
+          "https://security.gentoo.org/glsa/202101-20",
+          "https://sourceware.org/bugzilla/show_bug.cgi?id=19519",
+          "https://sourceware.org/bugzilla/show_bug.cgi?id=19519#c21",
+          "https://sourceware.org/bugzilla/show_bug.cgi?id=26224"
+        ],
+        "PublishedDate": "2017-03-02T01:59:00Z",
+        "LastModifiedDate": "2021-02-25T17:15:00Z"
+      },
+      {
+        "VulnerabilityID": "CVE-2019-25013",
+        "PkgName": "libc-bin",
+        "InstalledVersion": "2.31-0ubuntu9.2",
+        "Layer": {
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
+        },
+        "SeveritySource": "ubuntu",
+        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2019-25013",
+        "Title": "glibc: buffer over-read in iconv when processing invalid multi-byte input sequences in the EUC-KR encoding",
+        "Description": "The iconv feature in the GNU C Library (aka glibc or libc6) through 2.32, when processing invalid multi-byte input sequences in the EUC-KR encoding, may have a buffer over-read.",
+        "Severity": "LOW",
+        "CweIDs": [
+          "CWE-125"
+        ],
+        "CVSS": {
+          "nvd": {
+            "V2Vector": "AV:N/AC:M/Au:N/C:N/I:N/A:C",
+            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "V2Score": 7.1,
+            "V3Score": 5.9
+          },
+          "redhat": {
+            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:H",
+            "V3Score": 4.8
+          }
+        },
+        "References": [
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-25013",
+          "https://linux.oracle.com/cve/CVE-2019-25013.html",
+          "https://linux.oracle.com/errata/ELSA-2021-9344.html",
+          "https://lists.apache.org/thread.html/r32d767ac804e9b8aad4355bb85960a6a1385eab7afff549a5e98660f@%3Cjira.kafka.apache.org%3E",
+          "https://lists.apache.org/thread.html/r448bb851cc8e6e3f93f3c28c70032b37062625d81214744474ac49e7@%3Cdev.kafka.apache.org%3E",
+          "https://lists.apache.org/thread.html/r4806a391091e082bdea17266452ca656ebc176e51bb3932733b3a0a2@%3Cjira.kafka.apache.org%3E",
+          "https://lists.apache.org/thread.html/r499e4f96d0b5109ef083f2feccd33c51650c1b7d7068aa3bd47efca9@%3Cjira.kafka.apache.org%3E",
+          "https://lists.apache.org/thread.html/r5af4430421bb6f9973294691a7904bbd260937e9eef96b20556f43ff@%3Cjira.kafka.apache.org%3E",
+          "https://lists.apache.org/thread.html/r750eee18542bc02bd8350861c424ee60a9b9b225568fa09436a37ece@%3Cissues.zookeeper.apache.org%3E",
+          "https://lists.apache.org/thread.html/r7a2e94adfe0a2f0a1d42e4927e8c32ecac97d37db9cb68095fe9ddbc@%3Cdev.zookeeper.apache.org%3E",
+          "https://lists.apache.org/thread.html/rd2354f9ccce41e494fbadcbc5ad87218de6ec0fff8a7b54c8462226c@%3Cissues.zookeeper.apache.org%3E",
+          "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4Y6TX47P47KABSFOL26FLDNVCWXDKDEZ/",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TVCUNLQ3HXGS4VPUQKWTJGRAW2KTFGXS/",
+          "https://security.netapp.com/advisory/ntap-20210205-0004/",
+          "https://sourceware.org/bugzilla/show_bug.cgi?id=24973",
+          "https://sourceware.org/git/?p=glibc.git;a=commit;h=ee7a3144c9922808181009b7b3e50e852fb4999b"
+        ],
+        "PublishedDate": "2021-01-04T18:15:00Z",
+        "LastModifiedDate": "2021-07-06T06:15:00Z"
+      },
+      {
+        "VulnerabilityID": "CVE-2020-27618",
+        "PkgName": "libc-bin",
+        "InstalledVersion": "2.31-0ubuntu9.2",
+        "Layer": {
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
+        },
+        "SeveritySource": "ubuntu",
+        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-27618",
+        "Title": "glibc: iconv when processing invalid multi-byte input sequences fails to advance the input state, which could result in an infinite loop",
+        "Description": "The iconv function in the GNU C Library (aka glibc or libc6) 2.32 and earlier, when processing invalid multi-byte input sequences in IBM1364, IBM1371, IBM1388, IBM1390, and IBM1399 encodings, fails to advance the input state, which could lead to an infinite loop in applications, resulting in a denial of service, a different vulnerability from CVE-2016-10228.",
+        "Severity": "LOW",
+        "CweIDs": [
+          "CWE-835"
+        ],
+        "CVSS": {
+          "nvd": {
+            "V2Vector": "AV:L/AC:L/Au:N/C:N/I:N/A:P",
+            "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "V2Score": 2.1,
+            "V3Score": 5.5
+          },
+          "redhat": {
+            "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+            "V3Score": 5.5
+          }
+        },
+        "References": [
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27618",
+          "https://linux.oracle.com/cve/CVE-2020-27618.html",
+          "https://linux.oracle.com/errata/ELSA-2021-9344.html",
+          "https://security.netapp.com/advisory/ntap-20210401-0006/",
+          "https://sourceware.org/bugzilla/show_bug.cgi?id=19519#c21",
+          "https://sourceware.org/bugzilla/show_bug.cgi?id=26224"
+        ],
+        "PublishedDate": "2021-02-26T23:15:00Z",
+        "LastModifiedDate": "2021-07-06T06:15:00Z"
+      },
+      {
+        "VulnerabilityID": "CVE-2020-29562",
+        "PkgName": "libc-bin",
+        "InstalledVersion": "2.31-0ubuntu9.2",
+        "Layer": {
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
+        },
+        "SeveritySource": "ubuntu",
+        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-29562",
+        "Title": "glibc: assertion failure in iconv when converting invalid UCS4",
+        "Description": "The iconv function in the GNU C Library (aka glibc or libc6) 2.30 to 2.32, when converting UCS4 text containing an irreversible character, fails an assertion in the code path and aborts the program, potentially resulting in a denial of service.",
+        "Severity": "LOW",
+        "CweIDs": [
+          "CWE-617"
+        ],
+        "CVSS": {
+          "nvd": {
+            "V2Vector": "AV:N/AC:H/Au:S/C:N/I:N/A:P",
+            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:H",
+            "V2Score": 2.1,
+            "V3Score": 4.8
+          },
+          "redhat": {
+            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:H",
+            "V3Score": 4.8
+          }
+        },
+        "References": [
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29562",
+          "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TVCUNLQ3HXGS4VPUQKWTJGRAW2KTFGXS/",
+          "https://security.gentoo.org/glsa/202101-20",
+          "https://security.netapp.com/advisory/ntap-20210122-0004/",
+          "https://sourceware.org/bugzilla/show_bug.cgi?id=26923",
+          "https://sourceware.org/pipermail/libc-alpha/2020-November/119822.html"
+        ],
+        "PublishedDate": "2020-12-04T07:15:00Z",
+        "LastModifiedDate": "2021-03-19T18:41:00Z"
+      },
+      {
+        "VulnerabilityID": "CVE-2020-6096",
+        "PkgName": "libc-bin",
+        "InstalledVersion": "2.31-0ubuntu9.2",
+        "Layer": {
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
+        },
+        "SeveritySource": "ubuntu",
+        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-6096",
+        "Title": "glibc: signed comparison vulnerability in the ARMv7 memcpy function",
+        "Description": "An exploitable signed comparison vulnerability exists in the ARMv7 memcpy() implementation of GNU glibc 2.30.9000. Calling memcpy() (on ARMv7 targets that utilize the GNU glibc implementation) with a negative value for the 'num' parameter results in a signed comparison vulnerability. If an attacker underflows the 'num' parameter to memcpy(), this vulnerability could lead to undefined behavior such as writing to out-of-bounds memory and potentially remote code execution. Furthermore, this memcpy() implementation allows for program execution to continue in scenarios where a segmentation fault or crash should have occurred. The dangers occur in that subsequent execution and iterations of this code will be executed with this corrupted data.",
+        "Severity": "LOW",
+        "CweIDs": [
+          "CWE-191"
+        ],
+        "CVSS": {
+          "nvd": {
+            "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
+            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "V2Score": 6.8,
+            "V3Score": 8.1
+          },
+          "redhat": {
+            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "V3Score": 8.1
+          }
+        },
+        "References": [
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-6096",
+          "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SPYXTDOOB4PQGTYAMZAZNJIB3FF6YQXI/",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/URXOIA2LDUKHQXK4BE55BQBRI6ZZG3Y6/",
+          "https://security.gentoo.org/glsa/202101-20",
+          "https://sourceware.org/bugzilla/attachment.cgi?id=12334",
+          "https://sourceware.org/bugzilla/show_bug.cgi?id=25620",
+          "https://talosintelligence.com/vulnerability_reports/TALOS-2020-1019",
+          "https://ubuntu.com/security/notices/USN-4954-1",
+          "https://www.talosintelligence.com/vulnerability_reports/TALOS-2020-1019"
+        ],
+        "PublishedDate": "2020-04-01T22:15:00Z",
+        "LastModifiedDate": "2021-03-04T20:46:00Z"
+      },
+      {
+        "VulnerabilityID": "CVE-2021-27645",
+        "PkgName": "libc-bin",
+        "InstalledVersion": "2.31-0ubuntu9.2",
+        "Layer": {
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
+        },
+        "SeveritySource": "ubuntu",
+        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-27645",
+        "Title": "glibc: Use-after-free in addgetnetgrentX function in netgroupcache.c",
+        "Description": "The nameserver caching daemon (nscd) in the GNU C Library (aka glibc or libc6) 2.29 through 2.33, when processing a request for netgroup lookup, may crash due to a double-free, potentially resulting in degraded service or Denial of Service on the local system. This is related to netgroupcache.c.",
+        "Severity": "LOW",
+        "CweIDs": [
+          "CWE-415"
+        ],
+        "CVSS": {
+          "nvd": {
+            "V2Vector": "AV:L/AC:M/Au:N/C:N/I:N/A:P",
+            "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L",
+            "V2Score": 1.9,
+            "V3Score": 2.5
+          },
+          "redhat": {
+            "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L",
+            "V3Score": 2.5
+          }
+        },
+        "References": [
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-27645",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/7LZNT6KTMCCWPWXEOGSHD3YLYZKUGMH5/",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/I7TS26LIZSOBLGJEZMJX4PXT5BQDE2WS/",
+          "https://sourceware.org/bugzilla/show_bug.cgi?id=27462"
+        ],
+        "PublishedDate": "2021-02-24T15:15:00Z",
+        "LastModifiedDate": "2021-07-06T06:15:00Z"
+      },
+      {
+        "VulnerabilityID": "CVE-2021-3326",
+        "PkgName": "libc-bin",
+        "InstalledVersion": "2.31-0ubuntu9.2",
+        "Layer": {
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
+        },
+        "SeveritySource": "ubuntu",
+        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3326",
+        "Title": "glibc: Assertion failure in ISO-2022-JP-3 gconv module related to combining characters",
+        "Description": "The iconv function in the GNU C Library (aka glibc or libc6) 2.32 and earlier, when processing invalid input sequences in the ISO-2022-JP-3 encoding, fails an assertion in the code path and aborts the program, potentially resulting in a denial of service.",
+        "Severity": "LOW",
+        "CweIDs": [
+          "CWE-617"
         ],
         "CVSS": {
           "nvd": {
@@ -107,34 +354,29 @@
             "V3Score": 7.5
           },
           "redhat": {
-            "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
-            "V3Score": 6.5
+            "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "V3Score": 7.5
           }
         },
         "References": [
-          "http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00039.html",
-          "https://access.redhat.com/articles/4264021",
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13050",
-          "https://gist.github.com/rjhansen/67ab921ffb4084c865b3618d6955275f",
-          "https://linux.oracle.com/cve/CVE-2019-13050.html",
-          "https://linux.oracle.com/errata/ELSA-2020-4490.html",
-          "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
-          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AUK2YRO6QIH64WP2LRA5D4LACTXQPPU4/",
-          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/CP4ON34YEXEZDZOXXWV43KVGGO6WZLJ5/",
-          "https://lists.gnupg.org/pipermail/gnupg-announce/2019q3/000439.html",
-          "https://support.f5.com/csp/article/K08654551",
-          "https://support.f5.com/csp/article/K08654551?utm_source=f5support\u0026amp;utm_medium=RSS",
-          "https://twitter.com/lambdafu/status/1147162583969009664"
+          "http://www.openwall.com/lists/oss-security/2021/01/28/2",
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3326",
+          "https://linux.oracle.com/cve/CVE-2021-3326.html",
+          "https://linux.oracle.com/errata/ELSA-2021-9344.html",
+          "https://security.netapp.com/advisory/ntap-20210304-0007/",
+          "https://sourceware.org/bugzilla/show_bug.cgi?id=27256",
+          "https://sourceware.org/git/?p=glibc.git;a=commit;h=7d88c6142c6efc160c0ee5e4f85cde382c072888",
+          "https://sourceware.org/pipermail/libc-alpha/2021-January/122058.html"
         ],
-        "PublishedDate": "2019-06-29T17:15:00Z",
-        "LastModifiedDate": "2021-03-04T21:05:00Z"
+        "PublishedDate": "2021-01-27T20:15:00Z",
+        "LastModifiedDate": "2021-07-06T06:15:00Z"
       },
       {
         "VulnerabilityID": "CVE-2016-10228",
-        "PkgName": "libc-bin",
+        "PkgName": "libc6",
         "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2016-10228",
@@ -161,7 +403,7 @@
           "http://www.securityfocus.com/bid/96525",
           "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10228",
           "https://linux.oracle.com/cve/CVE-2016-10228.html",
-          "https://linux.oracle.com/errata/ELSA-2021-1585.html",
+          "https://linux.oracle.com/errata/ELSA-2021-9344.html",
           "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
           "https://security.gentoo.org/glsa/202101-20",
           "https://sourceware.org/bugzilla/show_bug.cgi?id=19519",
@@ -173,10 +415,10 @@
       },
       {
         "VulnerabilityID": "CVE-2019-25013",
-        "PkgName": "libc-bin",
+        "PkgName": "libc6",
         "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2019-25013",
@@ -201,7 +443,7 @@
         "References": [
           "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-25013",
           "https://linux.oracle.com/cve/CVE-2019-25013.html",
-          "https://linux.oracle.com/errata/ELSA-2021-1585.html",
+          "https://linux.oracle.com/errata/ELSA-2021-9344.html",
           "https://lists.apache.org/thread.html/r32d767ac804e9b8aad4355bb85960a6a1385eab7afff549a5e98660f@%3Cjira.kafka.apache.org%3E",
           "https://lists.apache.org/thread.html/r448bb851cc8e6e3f93f3c28c70032b37062625d81214744474ac49e7@%3Cdev.kafka.apache.org%3E",
           "https://lists.apache.org/thread.html/r4806a391091e082bdea17266452ca656ebc176e51bb3932733b3a0a2@%3Cjira.kafka.apache.org%3E",
@@ -218,14 +460,14 @@
           "https://sourceware.org/git/?p=glibc.git;a=commit;h=ee7a3144c9922808181009b7b3e50e852fb4999b"
         ],
         "PublishedDate": "2021-01-04T18:15:00Z",
-        "LastModifiedDate": "2021-05-21T14:44:00Z"
+        "LastModifiedDate": "2021-07-06T06:15:00Z"
       },
       {
         "VulnerabilityID": "CVE-2020-27618",
-        "PkgName": "libc-bin",
+        "PkgName": "libc6",
         "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-27618",
@@ -250,266 +492,20 @@
         "References": [
           "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27618",
           "https://linux.oracle.com/cve/CVE-2020-27618.html",
-          "https://linux.oracle.com/errata/ELSA-2021-1585.html",
+          "https://linux.oracle.com/errata/ELSA-2021-9344.html",
           "https://security.netapp.com/advisory/ntap-20210401-0006/",
           "https://sourceware.org/bugzilla/show_bug.cgi?id=19519#c21",
           "https://sourceware.org/bugzilla/show_bug.cgi?id=26224"
         ],
         "PublishedDate": "2021-02-26T23:15:00Z",
-        "LastModifiedDate": "2021-04-01T08:15:00Z"
-      },
-      {
-        "VulnerabilityID": "CVE-2020-29562",
-        "PkgName": "libc-bin",
-        "InstalledVersion": "2.31-0ubuntu9.2",
-        "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-29562",
-        "Title": "glibc: assertion failure in iconv when converting invalid UCS4",
-        "Description": "The iconv function in the GNU C Library (aka glibc or libc6) 2.30 to 2.32, when converting UCS4 text containing an irreversible character, fails an assertion in the code path and aborts the program, potentially resulting in a denial of service.",
-        "Severity": "LOW",
-        "CweIDs": [
-          "CWE-617"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:N/AC:H/Au:S/C:N/I:N/A:P",
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:H",
-            "V2Score": 2.1,
-            "V3Score": 4.8
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:H",
-            "V3Score": 4.8
-          }
-        },
-        "References": [
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29562",
-          "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
-          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TVCUNLQ3HXGS4VPUQKWTJGRAW2KTFGXS/",
-          "https://security.gentoo.org/glsa/202101-20",
-          "https://security.netapp.com/advisory/ntap-20210122-0004/",
-          "https://sourceware.org/bugzilla/show_bug.cgi?id=26923",
-          "https://sourceware.org/pipermail/libc-alpha/2020-November/119822.html"
-        ],
-        "PublishedDate": "2020-12-04T07:15:00Z",
-        "LastModifiedDate": "2021-03-19T18:41:00Z"
-      },
-      {
-        "VulnerabilityID": "CVE-2020-6096",
-        "PkgName": "libc-bin",
-        "InstalledVersion": "2.31-0ubuntu9.2",
-        "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-6096",
-        "Title": "glibc: signed comparison vulnerability in the ARMv7 memcpy function",
-        "Description": "An exploitable signed comparison vulnerability exists in the ARMv7 memcpy() implementation of GNU glibc 2.30.9000. Calling memcpy() (on ARMv7 targets that utilize the GNU glibc implementation) with a negative value for the 'num' parameter results in a signed comparison vulnerability. If an attacker underflows the 'num' parameter to memcpy(), this vulnerability could lead to undefined behavior such as writing to out-of-bounds memory and potentially remote code execution. Furthermore, this memcpy() implementation allows for program execution to continue in scenarios where a segmentation fault or crash should have occurred. The dangers occur in that subsequent execution and iterations of this code will be executed with this corrupted data.",
-        "Severity": "LOW",
-        "CweIDs": [
-          "CWE-191"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:N/AC:M/Au:N/C:P/I:P/A:P",
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
-            "V2Score": 6.8,
-            "V3Score": 8.1
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
-            "V3Score": 8.1
-          }
-        },
-        "References": [
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-6096",
-          "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
-          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SPYXTDOOB4PQGTYAMZAZNJIB3FF6YQXI/",
-          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/URXOIA2LDUKHQXK4BE55BQBRI6ZZG3Y6/",
-          "https://security.gentoo.org/glsa/202101-20",
-          "https://sourceware.org/bugzilla/attachment.cgi?id=12334",
-          "https://sourceware.org/bugzilla/show_bug.cgi?id=25620",
-          "https://talosintelligence.com/vulnerability_reports/TALOS-2020-1019",
-          "https://usn.ubuntu.com/usn/usn-4954-1",
-          "https://www.talosintelligence.com/vulnerability_reports/TALOS-2020-1019"
-        ],
-        "PublishedDate": "2020-04-01T22:15:00Z",
-        "LastModifiedDate": "2021-03-04T20:46:00Z"
-      },
-      {
-        "VulnerabilityID": "CVE-2021-27645",
-        "PkgName": "libc-bin",
-        "InstalledVersion": "2.31-0ubuntu9.2",
-        "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-27645",
-        "Title": "glibc: Use-after-free in addgetnetgrentX function in netgroupcache.c",
-        "Description": "The nameserver caching daemon (nscd) in the GNU C Library (aka glibc or libc6) 2.29 through 2.33, when processing a request for netgroup lookup, may crash due to a double-free, potentially resulting in degraded service or Denial of Service on the local system. This is related to netgroupcache.c.",
-        "Severity": "LOW",
-        "CweIDs": [
-          "CWE-415"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:L/AC:M/Au:N/C:N/I:N/A:P",
-            "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L",
-            "V2Score": 1.9,
-            "V3Score": 2.5
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L",
-            "V3Score": 2.5
-          }
-        },
-        "References": [
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-27645",
-          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/7LZNT6KTMCCWPWXEOGSHD3YLYZKUGMH5/",
-          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/I7TS26LIZSOBLGJEZMJX4PXT5BQDE2WS/",
-          "https://sourceware.org/bugzilla/show_bug.cgi?id=27462"
-        ],
-        "PublishedDate": "2021-02-24T15:15:00Z",
-        "LastModifiedDate": "2021-05-22T03:15:00Z"
-      },
-      {
-        "VulnerabilityID": "CVE-2016-10228",
-        "PkgName": "libc6",
-        "InstalledVersion": "2.31-0ubuntu9.2",
-        "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2016-10228",
-        "Title": "glibc: iconv program can hang when invoked with the -c option",
-        "Description": "The iconv program in the GNU C Library (aka glibc or libc6) 2.31 and earlier, when invoked with multiple suffixes in the destination encoding (TRANSLATE or IGNORE) along with the -c option, enters an infinite loop when processing invalid multi-byte input sequences, leading to a denial of service.",
-        "Severity": "LOW",
-        "CweIDs": [
-          "CWE-20"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:N/AC:M/Au:N/C:N/I:N/A:P",
-            "V3Vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
-            "V2Score": 4.3,
-            "V3Score": 5.9
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L",
-            "V3Score": 3.3
-          }
-        },
-        "References": [
-          "http://openwall.com/lists/oss-security/2017/03/01/10",
-          "http://www.securityfocus.com/bid/96525",
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10228",
-          "https://linux.oracle.com/cve/CVE-2016-10228.html",
-          "https://linux.oracle.com/errata/ELSA-2021-1585.html",
-          "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
-          "https://security.gentoo.org/glsa/202101-20",
-          "https://sourceware.org/bugzilla/show_bug.cgi?id=19519",
-          "https://sourceware.org/bugzilla/show_bug.cgi?id=19519#c21",
-          "https://sourceware.org/bugzilla/show_bug.cgi?id=26224"
-        ],
-        "PublishedDate": "2017-03-02T01:59:00Z",
-        "LastModifiedDate": "2021-02-25T17:15:00Z"
-      },
-      {
-        "VulnerabilityID": "CVE-2019-25013",
-        "PkgName": "libc6",
-        "InstalledVersion": "2.31-0ubuntu9.2",
-        "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2019-25013",
-        "Title": "glibc: buffer over-read in iconv when processing invalid multi-byte input sequences in the EUC-KR encoding",
-        "Description": "The iconv feature in the GNU C Library (aka glibc or libc6) through 2.32, when processing invalid multi-byte input sequences in the EUC-KR encoding, may have a buffer over-read.",
-        "Severity": "LOW",
-        "CweIDs": [
-          "CWE-125"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:N/AC:M/Au:N/C:N/I:N/A:C",
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
-            "V2Score": 7.1,
-            "V3Score": 5.9
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:U/C:N/I:N/A:H",
-            "V3Score": 4.8
-          }
-        },
-        "References": [
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-25013",
-          "https://linux.oracle.com/cve/CVE-2019-25013.html",
-          "https://linux.oracle.com/errata/ELSA-2021-1585.html",
-          "https://lists.apache.org/thread.html/r32d767ac804e9b8aad4355bb85960a6a1385eab7afff549a5e98660f@%3Cjira.kafka.apache.org%3E",
-          "https://lists.apache.org/thread.html/r448bb851cc8e6e3f93f3c28c70032b37062625d81214744474ac49e7@%3Cdev.kafka.apache.org%3E",
-          "https://lists.apache.org/thread.html/r4806a391091e082bdea17266452ca656ebc176e51bb3932733b3a0a2@%3Cjira.kafka.apache.org%3E",
-          "https://lists.apache.org/thread.html/r499e4f96d0b5109ef083f2feccd33c51650c1b7d7068aa3bd47efca9@%3Cjira.kafka.apache.org%3E",
-          "https://lists.apache.org/thread.html/r5af4430421bb6f9973294691a7904bbd260937e9eef96b20556f43ff@%3Cjira.kafka.apache.org%3E",
-          "https://lists.apache.org/thread.html/r750eee18542bc02bd8350861c424ee60a9b9b225568fa09436a37ece@%3Cissues.zookeeper.apache.org%3E",
-          "https://lists.apache.org/thread.html/r7a2e94adfe0a2f0a1d42e4927e8c32ecac97d37db9cb68095fe9ddbc@%3Cdev.zookeeper.apache.org%3E",
-          "https://lists.apache.org/thread.html/rd2354f9ccce41e494fbadcbc5ad87218de6ec0fff8a7b54c8462226c@%3Cissues.zookeeper.apache.org%3E",
-          "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
-          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4Y6TX47P47KABSFOL26FLDNVCWXDKDEZ/",
-          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TVCUNLQ3HXGS4VPUQKWTJGRAW2KTFGXS/",
-          "https://security.netapp.com/advisory/ntap-20210205-0004/",
-          "https://sourceware.org/bugzilla/show_bug.cgi?id=24973",
-          "https://sourceware.org/git/?p=glibc.git;a=commit;h=ee7a3144c9922808181009b7b3e50e852fb4999b"
-        ],
-        "PublishedDate": "2021-01-04T18:15:00Z",
-        "LastModifiedDate": "2021-05-21T14:44:00Z"
-      },
-      {
-        "VulnerabilityID": "CVE-2020-27618",
-        "PkgName": "libc6",
-        "InstalledVersion": "2.31-0ubuntu9.2",
-        "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-27618",
-        "Title": "glibc: iconv when processing invalid multi-byte input sequences fails to advance the input state, which could result in an infinite loop",
-        "Description": "The iconv function in the GNU C Library (aka glibc or libc6) 2.32 and earlier, when processing invalid multi-byte input sequences in IBM1364, IBM1371, IBM1388, IBM1390, and IBM1399 encodings, fails to advance the input state, which could lead to an infinite loop in applications, resulting in a denial of service, a different vulnerability from CVE-2016-10228.",
-        "Severity": "LOW",
-        "CweIDs": [
-          "CWE-835"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:L/AC:L/Au:N/C:N/I:N/A:P",
-            "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
-            "V2Score": 2.1,
-            "V3Score": 5.5
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
-            "V3Score": 5.5
-          }
-        },
-        "References": [
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27618",
-          "https://linux.oracle.com/cve/CVE-2020-27618.html",
-          "https://linux.oracle.com/errata/ELSA-2021-1585.html",
-          "https://security.netapp.com/advisory/ntap-20210401-0006/",
-          "https://sourceware.org/bugzilla/show_bug.cgi?id=19519#c21",
-          "https://sourceware.org/bugzilla/show_bug.cgi?id=26224"
-        ],
-        "PublishedDate": "2021-02-26T23:15:00Z",
-        "LastModifiedDate": "2021-04-01T08:15:00Z"
+        "LastModifiedDate": "2021-07-06T06:15:00Z"
       },
       {
         "VulnerabilityID": "CVE-2020-29562",
         "PkgName": "libc6",
         "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-29562",
@@ -548,7 +544,7 @@
         "PkgName": "libc6",
         "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-6096",
@@ -579,7 +575,7 @@
           "https://sourceware.org/bugzilla/attachment.cgi?id=12334",
           "https://sourceware.org/bugzilla/show_bug.cgi?id=25620",
           "https://talosintelligence.com/vulnerability_reports/TALOS-2020-1019",
-          "https://usn.ubuntu.com/usn/usn-4954-1",
+          "https://ubuntu.com/security/notices/USN-4954-1",
           "https://www.talosintelligence.com/vulnerability_reports/TALOS-2020-1019"
         ],
         "PublishedDate": "2020-04-01T22:15:00Z",
@@ -590,7 +586,7 @@
         "PkgName": "libc6",
         "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-27645",
@@ -619,53 +615,93 @@
           "https://sourceware.org/bugzilla/show_bug.cgi?id=27462"
         ],
         "PublishedDate": "2021-02-24T15:15:00Z",
-        "LastModifiedDate": "2021-05-22T03:15:00Z"
+        "LastModifiedDate": "2021-07-06T06:15:00Z"
       },
       {
-        "VulnerabilityID": "CVE-2019-12904",
+        "VulnerabilityID": "CVE-2021-3326",
+        "PkgName": "libc6",
+        "InstalledVersion": "2.31-0ubuntu9.2",
+        "Layer": {
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
+        },
+        "SeveritySource": "ubuntu",
+        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3326",
+        "Title": "glibc: Assertion failure in ISO-2022-JP-3 gconv module related to combining characters",
+        "Description": "The iconv function in the GNU C Library (aka glibc or libc6) 2.32 and earlier, when processing invalid input sequences in the ISO-2022-JP-3 encoding, fails an assertion in the code path and aborts the program, potentially resulting in a denial of service.",
+        "Severity": "LOW",
+        "CweIDs": [
+          "CWE-617"
+        ],
+        "CVSS": {
+          "nvd": {
+            "V2Vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P",
+            "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "V2Score": 5,
+            "V3Score": 7.5
+          },
+          "redhat": {
+            "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "V3Score": 7.5
+          }
+        },
+        "References": [
+          "http://www.openwall.com/lists/oss-security/2021/01/28/2",
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3326",
+          "https://linux.oracle.com/cve/CVE-2021-3326.html",
+          "https://linux.oracle.com/errata/ELSA-2021-9344.html",
+          "https://security.netapp.com/advisory/ntap-20210304-0007/",
+          "https://sourceware.org/bugzilla/show_bug.cgi?id=27256",
+          "https://sourceware.org/git/?p=glibc.git;a=commit;h=7d88c6142c6efc160c0ee5e4f85cde382c072888",
+          "https://sourceware.org/pipermail/libc-alpha/2021-January/122058.html"
+        ],
+        "PublishedDate": "2021-01-27T20:15:00Z",
+        "LastModifiedDate": "2021-07-06T06:15:00Z"
+      },
+      {
+        "VulnerabilityID": "CVE-2021-33560",
         "PkgName": "libgcrypt20",
         "InstalledVersion": "1.8.5-5ubuntu1",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2019-12904",
-        "Title": "Libgcrypt: physical addresses being available to other processes leads to a flush-and-reload side-channel attack",
-        "Description": "** DISPUTED ** In Libgcrypt 1.8.4, the C implementation of AES is vulnerable to a flush-and-reload side-channel attack because physical addresses are available to other processes. (The C implementation is used on platforms where an assembly-language implementation is unavailable.) NOTE: the vendor's position is that the issue report cannot be validated because there is no description of an attack.",
+        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-33560",
+        "Title": "libgcrypt: mishandles ElGamal encryption because it lacks exponent blinding to address a side-channel attack against mpi_powm",
+        "Description": "Libgcrypt before 1.8.8 and 1.9.x before 1.9.3 mishandles ElGamal encryption because it lacks exponent blinding to address a side-channel attack against mpi_powm, and the window size is not chosen appropriately. (There is also an interoperability problem because the selection of the k integer value does not properly consider the differences between basic ElGamal encryption and generalized ElGamal encryption.) This, for example, affects use of ElGamal in OpenPGP.",
         "Severity": "LOW",
         "CweIDs": [
-          "CWE-310"
+          "CWE-203"
         ],
         "CVSS": {
           "nvd": {
-            "V2Vector": "AV:N/AC:M/Au:N/C:P/I:N/A:N",
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
-            "V2Score": 4.3,
-            "V3Score": 5.9
+            "V2Vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N",
+            "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "V2Score": 5,
+            "V3Score": 7.5
           },
           "redhat": {
-            "V3Vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
-            "V3Score": 5.9
+            "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "V3Score": 7.5
           }
         },
         "References": [
-          "http://lists.opensuse.org/opensuse-security-announce/2019-07/msg00049.html",
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12904",
-          "https://dev.gnupg.org/T4541",
-          "https://github.com/gpg/libgcrypt/commit/a4c561aab1014c3630bc88faf6f5246fee16b020",
-          "https://github.com/gpg/libgcrypt/commit/daedbbb5541cd8ecda1459d3b843ea4d92788762",
-          "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
-          "https://people.canonical.com/~ubuntu-security/cve/2019/CVE-2019-12904.html"
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33560",
+          "https://dev.gnupg.org/T5305",
+          "https://dev.gnupg.org/T5328",
+          "https://dev.gnupg.org/T5466",
+          "https://dev.gnupg.org/rCe8b7f10be275bcedb5fc05ed4837a89bfd605c61",
+          "https://lists.debian.org/debian-lts-announce/2021/06/msg00021.html",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/R7OAPCUGPF3VLA7QAJUQSL255D4ITVTL/"
         ],
-        "PublishedDate": "2019-06-20T00:15:00Z",
-        "LastModifiedDate": "2021-03-04T21:05:00Z"
+        "PublishedDate": "2021-06-08T11:15:00Z",
+        "LastModifiedDate": "2021-07-01T06:15:00Z"
       },
       {
         "VulnerabilityID": "CVE-2021-20231",
         "PkgName": "libgnutls30",
         "InstalledVersion": "3.6.13-2ubuntu1.3",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-20231",
@@ -703,14 +739,14 @@
           "https://www.gnutls.org/security-new.html#GNUTLS-SA-2021-03-10"
         ],
         "PublishedDate": "2021-03-12T19:15:00Z",
-        "LastModifiedDate": "2021-05-25T13:31:00Z"
+        "LastModifiedDate": "2021-06-01T14:07:00Z"
       },
       {
         "VulnerabilityID": "CVE-2021-20232",
         "PkgName": "libgnutls30",
         "InstalledVersion": "3.6.13-2ubuntu1.3",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-20232",
@@ -755,7 +791,7 @@
         "PkgName": "libpcre3",
         "InstalledVersion": "2:8.39-12build1",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2017-11164",
@@ -791,7 +827,7 @@
         "PkgName": "libpcre3",
         "InstalledVersion": "2:8.39-12build1",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2019-20838",
@@ -831,7 +867,7 @@
         "PkgName": "libpcre3",
         "InstalledVersion": "2:8.39-12build1",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-14155",
@@ -868,53 +904,11 @@
         "LastModifiedDate": "2021-03-04T21:43:00Z"
       },
       {
-        "VulnerabilityID": "CVE-2021-29921",
-        "PkgName": "libpython3.8",
-        "InstalledVersion": "3.8.5-1~20.04.2",
-        "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-29921",
-        "Title": "python-ipaddress: Improper input validation of octal strings",
-        "Description": "In Python before 3,9,5, the ipaddress library mishandles leading zero characters in the octets of an IP address string. This (in some situations) allows attackers to bypass access control that is based on IP addresses.",
-        "Severity": "MEDIUM",
-        "CweIDs": [
-          "CWE-20"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
-            "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-            "V2Score": 7.5,
-            "V3Score": 9.8
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H",
-            "V3Score": 7.4
-          }
-        },
-        "References": [
-          "https://bugs.python.org/issue36384",
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29921",
-          "https://docs.python.org/3/library/ipaddress.html",
-          "https://github.com/python/cpython/blob/63298930fb531ba2bb4f23bc3b915dbf1e17e9e1/Misc/NEWS.d/3.8.0a4.rst",
-          "https://github.com/python/cpython/pull/12577",
-          "https://github.com/python/cpython/pull/25099",
-          "https://github.com/sickcodes",
-          "https://github.com/sickcodes/security/blob/master/advisories/SICK-2021-014.md",
-          "https://python-security.readthedocs.io/vuln/ipaddress-ipv4-leading-zeros.html",
-          "https://sick.codes/sick-2021-014"
-        ],
-        "PublishedDate": "2021-05-06T13:15:00Z",
-        "LastModifiedDate": "2021-05-24T05:15:00Z"
-      },
-      {
         "VulnerabilityID": "CVE-2021-23336",
         "PkgName": "libpython3.8",
-        "InstalledVersion": "3.8.5-1~20.04.2",
+        "InstalledVersion": "3.8.10-0ubuntu1~20.04",
         "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-23336",
@@ -965,66 +959,27 @@
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NJSCSN722JO2E2AGPWD4NTGVELVRPB4R/",
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NODWHDIFBQE5RU5PUWUVE47JOT5VCMJ2/",
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/OAGSWNGZJ6HQ5ISA67SNMK3CJRKICET7/",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RSLQD5CCM75IZGAMBDGUZEATYU5YSGJ7/",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SGIY6I4YS3WOXAK4SXKIEOC2G4VZKIR7/",
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TFTELUMWZE3KV3JB2H5EE6VFRZFRD5MV/",
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/W2LSKBEFI5SYEY5FM6ICZVZM5WRQUCS4/",
           "https://security.gentoo.org/glsa/202104-04",
           "https://security.netapp.com/advisory/ntap-20210326-0004/",
           "https://snyk.io/blog/cache-poisoning-in-popular-open-source-packages/",
           "https://snyk.io/vuln/SNYK-UPSTREAM-PYTHONCPYTHON-1074933",
-          "https://usn.ubuntu.com/usn/usn-4742-1",
-          "https://www.djangoproject.com/weblog/2021/feb/19/security-releases/"
+          "https://ubuntu.com/security/notices/USN-4742-1",
+          "https://www.djangoproject.com/weblog/2021/feb/19/security-releases/",
+          "https://www.oracle.com/security-alerts/cpuApr2021.html"
         ],
         "PublishedDate": "2021-02-15T13:15:00Z",
-        "LastModifiedDate": "2021-05-04T00:15:00Z"
-      },
-      {
-        "VulnerabilityID": "CVE-2021-29921",
-        "PkgName": "libpython3.8-minimal",
-        "InstalledVersion": "3.8.5-1~20.04.2",
-        "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-29921",
-        "Title": "python-ipaddress: Improper input validation of octal strings",
-        "Description": "In Python before 3,9,5, the ipaddress library mishandles leading zero characters in the octets of an IP address string. This (in some situations) allows attackers to bypass access control that is based on IP addresses.",
-        "Severity": "MEDIUM",
-        "CweIDs": [
-          "CWE-20"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
-            "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-            "V2Score": 7.5,
-            "V3Score": 9.8
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H",
-            "V3Score": 7.4
-          }
-        },
-        "References": [
-          "https://bugs.python.org/issue36384",
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29921",
-          "https://docs.python.org/3/library/ipaddress.html",
-          "https://github.com/python/cpython/blob/63298930fb531ba2bb4f23bc3b915dbf1e17e9e1/Misc/NEWS.d/3.8.0a4.rst",
-          "https://github.com/python/cpython/pull/12577",
-          "https://github.com/python/cpython/pull/25099",
-          "https://github.com/sickcodes",
-          "https://github.com/sickcodes/security/blob/master/advisories/SICK-2021-014.md",
-          "https://python-security.readthedocs.io/vuln/ipaddress-ipv4-leading-zeros.html",
-          "https://sick.codes/sick-2021-014"
-        ],
-        "PublishedDate": "2021-05-06T13:15:00Z",
-        "LastModifiedDate": "2021-05-24T05:15:00Z"
+        "LastModifiedDate": "2021-07-20T23:15:00Z"
       },
       {
         "VulnerabilityID": "CVE-2021-23336",
         "PkgName": "libpython3.8-minimal",
-        "InstalledVersion": "3.8.5-1~20.04.2",
+        "InstalledVersion": "3.8.10-0ubuntu1~20.04",
         "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-23336",
@@ -1075,66 +1030,27 @@
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NJSCSN722JO2E2AGPWD4NTGVELVRPB4R/",
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NODWHDIFBQE5RU5PUWUVE47JOT5VCMJ2/",
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/OAGSWNGZJ6HQ5ISA67SNMK3CJRKICET7/",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RSLQD5CCM75IZGAMBDGUZEATYU5YSGJ7/",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SGIY6I4YS3WOXAK4SXKIEOC2G4VZKIR7/",
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TFTELUMWZE3KV3JB2H5EE6VFRZFRD5MV/",
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/W2LSKBEFI5SYEY5FM6ICZVZM5WRQUCS4/",
           "https://security.gentoo.org/glsa/202104-04",
           "https://security.netapp.com/advisory/ntap-20210326-0004/",
           "https://snyk.io/blog/cache-poisoning-in-popular-open-source-packages/",
           "https://snyk.io/vuln/SNYK-UPSTREAM-PYTHONCPYTHON-1074933",
-          "https://usn.ubuntu.com/usn/usn-4742-1",
-          "https://www.djangoproject.com/weblog/2021/feb/19/security-releases/"
+          "https://ubuntu.com/security/notices/USN-4742-1",
+          "https://www.djangoproject.com/weblog/2021/feb/19/security-releases/",
+          "https://www.oracle.com/security-alerts/cpuApr2021.html"
         ],
         "PublishedDate": "2021-02-15T13:15:00Z",
-        "LastModifiedDate": "2021-05-04T00:15:00Z"
-      },
-      {
-        "VulnerabilityID": "CVE-2021-29921",
-        "PkgName": "libpython3.8-stdlib",
-        "InstalledVersion": "3.8.5-1~20.04.2",
-        "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-29921",
-        "Title": "python-ipaddress: Improper input validation of octal strings",
-        "Description": "In Python before 3,9,5, the ipaddress library mishandles leading zero characters in the octets of an IP address string. This (in some situations) allows attackers to bypass access control that is based on IP addresses.",
-        "Severity": "MEDIUM",
-        "CweIDs": [
-          "CWE-20"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
-            "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-            "V2Score": 7.5,
-            "V3Score": 9.8
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H",
-            "V3Score": 7.4
-          }
-        },
-        "References": [
-          "https://bugs.python.org/issue36384",
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29921",
-          "https://docs.python.org/3/library/ipaddress.html",
-          "https://github.com/python/cpython/blob/63298930fb531ba2bb4f23bc3b915dbf1e17e9e1/Misc/NEWS.d/3.8.0a4.rst",
-          "https://github.com/python/cpython/pull/12577",
-          "https://github.com/python/cpython/pull/25099",
-          "https://github.com/sickcodes",
-          "https://github.com/sickcodes/security/blob/master/advisories/SICK-2021-014.md",
-          "https://python-security.readthedocs.io/vuln/ipaddress-ipv4-leading-zeros.html",
-          "https://sick.codes/sick-2021-014"
-        ],
-        "PublishedDate": "2021-05-06T13:15:00Z",
-        "LastModifiedDate": "2021-05-24T05:15:00Z"
+        "LastModifiedDate": "2021-07-20T23:15:00Z"
       },
       {
         "VulnerabilityID": "CVE-2021-23336",
         "PkgName": "libpython3.8-stdlib",
-        "InstalledVersion": "3.8.5-1~20.04.2",
+        "InstalledVersion": "3.8.10-0ubuntu1~20.04",
         "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-23336",
@@ -1185,24 +1101,27 @@
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NJSCSN722JO2E2AGPWD4NTGVELVRPB4R/",
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NODWHDIFBQE5RU5PUWUVE47JOT5VCMJ2/",
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/OAGSWNGZJ6HQ5ISA67SNMK3CJRKICET7/",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RSLQD5CCM75IZGAMBDGUZEATYU5YSGJ7/",
+          "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SGIY6I4YS3WOXAK4SXKIEOC2G4VZKIR7/",
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TFTELUMWZE3KV3JB2H5EE6VFRZFRD5MV/",
           "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/W2LSKBEFI5SYEY5FM6ICZVZM5WRQUCS4/",
           "https://security.gentoo.org/glsa/202104-04",
           "https://security.netapp.com/advisory/ntap-20210326-0004/",
           "https://snyk.io/blog/cache-poisoning-in-popular-open-source-packages/",
           "https://snyk.io/vuln/SNYK-UPSTREAM-PYTHONCPYTHON-1074933",
-          "https://usn.ubuntu.com/usn/usn-4742-1",
-          "https://www.djangoproject.com/weblog/2021/feb/19/security-releases/"
+          "https://ubuntu.com/security/notices/USN-4742-1",
+          "https://www.djangoproject.com/weblog/2021/feb/19/security-releases/",
+          "https://www.oracle.com/security-alerts/cpuApr2021.html"
         ],
         "PublishedDate": "2021-02-15T13:15:00Z",
-        "LastModifiedDate": "2021-05-04T00:15:00Z"
+        "LastModifiedDate": "2021-07-20T23:15:00Z"
       },
       {
         "VulnerabilityID": "CVE-2020-9794",
         "PkgName": "libsqlite3-0",
         "InstalledVersion": "3.31.1-4ubuntu0.2",
         "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-9794",
@@ -1239,7 +1158,7 @@
         "PkgName": "libsqlite3-0",
         "InstalledVersion": "3.31.1-4ubuntu0.2",
         "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-9849",
@@ -1276,7 +1195,7 @@
         "PkgName": "libsqlite3-0",
         "InstalledVersion": "3.31.1-4ubuntu0.2",
         "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-9991",
@@ -1306,85 +1225,11 @@
         "LastModifiedDate": "2021-03-09T16:41:00Z"
       },
       {
-        "VulnerabilityID": "CVE-2018-20839",
-        "PkgName": "libsystemd0",
-        "InstalledVersion": "245.4-4ubuntu3.6",
-        "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2018-20839",
-        "Title": "systemd: mishandling of the current keyboard mode check leading to passwords being disclosed in cleartext to attacker",
-        "Description": "systemd 242 changes the VT1 mode upon a logout, which allows attackers to read cleartext passwords in certain circumstances, such as watching a shutdown, or using Ctrl-Alt-F1 and Ctrl-Alt-F2. This occurs because the KDGKBMODE (aka current keyboard mode) check is mishandled.",
-        "Severity": "MEDIUM",
-        "CweIDs": [
-          "CWE-200"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N",
-            "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-            "V2Score": 5,
-            "V3Score": 9.8
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.0/AV:P/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
-            "V3Score": 6.4
-          }
-        },
-        "References": [
-          "http://www.securityfocus.com/bid/108389",
-          "https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1803993",
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20839",
-          "https://github.com/systemd/systemd/commit/9725f1a10f80f5e0ae7d9b60547458622aeb322f",
-          "https://github.com/systemd/systemd/pull/12378",
-          "https://github.com/systemd/systemd/pull/13109",
-          "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
-          "https://security.netapp.com/advisory/ntap-20190530-0002/"
-        ],
-        "PublishedDate": "2019-05-17T04:29:00Z",
-        "LastModifiedDate": "2021-02-25T17:15:00Z"
-      },
-      {
-        "VulnerabilityID": "CVE-2020-13529",
-        "PkgName": "libsystemd0",
-        "InstalledVersion": "245.4-4ubuntu3.6",
-        "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-13529",
-        "Title": "systemd: DHCP FORCERENEW authentication not implemented can cause a system running the DHCP client to have its network reconfigured",
-        "Description": "An exploitable denial-of-service vulnerability exists in Systemd 245. A specially crafted DHCP FORCERENEW packet can cause a server running the DHCP client to be vulnerable to a DHCP ACK spoofing attack. An attacker can forge a pair of FORCERENEW and DCHP ACK packets to reconfigure the server.",
-        "Severity": "MEDIUM",
-        "CweIDs": [
-          "CWE-290"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:A/AC:M/Au:N/C:N/I:N/A:P",
-            "V3Vector": "CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:C/C:N/I:N/A:H",
-            "V2Score": 2.9,
-            "V3Score": 6.1
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:C/C:N/I:N/A:H",
-            "V3Score": 6.1
-          }
-        },
-        "References": [
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-13529",
-          "https://talosintelligence.com/vulnerability_reports/TALOS-2020-1142"
-        ],
-        "PublishedDate": "2021-05-10T16:15:00Z",
-        "LastModifiedDate": "2021-05-19T15:40:00Z"
-      },
-      {
         "VulnerabilityID": "CVE-2018-1000654",
         "PkgName": "libtasn1-6",
         "InstalledVersion": "4.16.0-2",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2018-1000654",
@@ -1415,85 +1260,11 @@
         "LastModifiedDate": "2021-02-25T17:15:00Z"
       },
       {
-        "VulnerabilityID": "CVE-2018-20839",
-        "PkgName": "libudev1",
-        "InstalledVersion": "245.4-4ubuntu3.6",
-        "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2018-20839",
-        "Title": "systemd: mishandling of the current keyboard mode check leading to passwords being disclosed in cleartext to attacker",
-        "Description": "systemd 242 changes the VT1 mode upon a logout, which allows attackers to read cleartext passwords in certain circumstances, such as watching a shutdown, or using Ctrl-Alt-F1 and Ctrl-Alt-F2. This occurs because the KDGKBMODE (aka current keyboard mode) check is mishandled.",
-        "Severity": "MEDIUM",
-        "CweIDs": [
-          "CWE-200"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N",
-            "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-            "V2Score": 5,
-            "V3Score": 9.8
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.0/AV:P/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
-            "V3Score": 6.4
-          }
-        },
-        "References": [
-          "http://www.securityfocus.com/bid/108389",
-          "https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1803993",
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20839",
-          "https://github.com/systemd/systemd/commit/9725f1a10f80f5e0ae7d9b60547458622aeb322f",
-          "https://github.com/systemd/systemd/pull/12378",
-          "https://github.com/systemd/systemd/pull/13109",
-          "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
-          "https://security.netapp.com/advisory/ntap-20190530-0002/"
-        ],
-        "PublishedDate": "2019-05-17T04:29:00Z",
-        "LastModifiedDate": "2021-02-25T17:15:00Z"
-      },
-      {
-        "VulnerabilityID": "CVE-2020-13529",
-        "PkgName": "libudev1",
-        "InstalledVersion": "245.4-4ubuntu3.6",
-        "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
-        },
-        "SeveritySource": "ubuntu",
-        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-13529",
-        "Title": "systemd: DHCP FORCERENEW authentication not implemented can cause a system running the DHCP client to have its network reconfigured",
-        "Description": "An exploitable denial-of-service vulnerability exists in Systemd 245. A specially crafted DHCP FORCERENEW packet can cause a server running the DHCP client to be vulnerable to a DHCP ACK spoofing attack. An attacker can forge a pair of FORCERENEW and DCHP ACK packets to reconfigure the server.",
-        "Severity": "MEDIUM",
-        "CweIDs": [
-          "CWE-290"
-        ],
-        "CVSS": {
-          "nvd": {
-            "V2Vector": "AV:A/AC:M/Au:N/C:N/I:N/A:P",
-            "V3Vector": "CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:C/C:N/I:N/A:H",
-            "V2Score": 2.9,
-            "V3Score": 6.1
-          },
-          "redhat": {
-            "V3Vector": "CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:C/C:N/I:N/A:H",
-            "V3Score": 6.1
-          }
-        },
-        "References": [
-          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-13529",
-          "https://talosintelligence.com/vulnerability_reports/TALOS-2020-1142"
-        ],
-        "PublishedDate": "2021-05-10T16:15:00Z",
-        "LastModifiedDate": "2021-05-19T15:40:00Z"
-      },
-      {
         "VulnerabilityID": "CVE-2016-10228",
         "PkgName": "locales",
         "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2016-10228",
@@ -1520,7 +1291,7 @@
           "http://www.securityfocus.com/bid/96525",
           "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10228",
           "https://linux.oracle.com/cve/CVE-2016-10228.html",
-          "https://linux.oracle.com/errata/ELSA-2021-1585.html",
+          "https://linux.oracle.com/errata/ELSA-2021-9344.html",
           "https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E",
           "https://security.gentoo.org/glsa/202101-20",
           "https://sourceware.org/bugzilla/show_bug.cgi?id=19519",
@@ -1535,7 +1306,7 @@
         "PkgName": "locales",
         "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2019-25013",
@@ -1560,7 +1331,7 @@
         "References": [
           "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-25013",
           "https://linux.oracle.com/cve/CVE-2019-25013.html",
-          "https://linux.oracle.com/errata/ELSA-2021-1585.html",
+          "https://linux.oracle.com/errata/ELSA-2021-9344.html",
           "https://lists.apache.org/thread.html/r32d767ac804e9b8aad4355bb85960a6a1385eab7afff549a5e98660f@%3Cjira.kafka.apache.org%3E",
           "https://lists.apache.org/thread.html/r448bb851cc8e6e3f93f3c28c70032b37062625d81214744474ac49e7@%3Cdev.kafka.apache.org%3E",
           "https://lists.apache.org/thread.html/r4806a391091e082bdea17266452ca656ebc176e51bb3932733b3a0a2@%3Cjira.kafka.apache.org%3E",
@@ -1577,14 +1348,14 @@
           "https://sourceware.org/git/?p=glibc.git;a=commit;h=ee7a3144c9922808181009b7b3e50e852fb4999b"
         ],
         "PublishedDate": "2021-01-04T18:15:00Z",
-        "LastModifiedDate": "2021-05-21T14:44:00Z"
+        "LastModifiedDate": "2021-07-06T06:15:00Z"
       },
       {
         "VulnerabilityID": "CVE-2020-27618",
         "PkgName": "locales",
         "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-27618",
@@ -1609,20 +1380,20 @@
         "References": [
           "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27618",
           "https://linux.oracle.com/cve/CVE-2020-27618.html",
-          "https://linux.oracle.com/errata/ELSA-2021-1585.html",
+          "https://linux.oracle.com/errata/ELSA-2021-9344.html",
           "https://security.netapp.com/advisory/ntap-20210401-0006/",
           "https://sourceware.org/bugzilla/show_bug.cgi?id=19519#c21",
           "https://sourceware.org/bugzilla/show_bug.cgi?id=26224"
         ],
         "PublishedDate": "2021-02-26T23:15:00Z",
-        "LastModifiedDate": "2021-04-01T08:15:00Z"
+        "LastModifiedDate": "2021-07-06T06:15:00Z"
       },
       {
         "VulnerabilityID": "CVE-2020-29562",
         "PkgName": "locales",
         "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-29562",
@@ -1661,7 +1432,7 @@
         "PkgName": "locales",
         "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2020-6096",
@@ -1692,7 +1463,7 @@
           "https://sourceware.org/bugzilla/attachment.cgi?id=12334",
           "https://sourceware.org/bugzilla/show_bug.cgi?id=25620",
           "https://talosintelligence.com/vulnerability_reports/TALOS-2020-1019",
-          "https://usn.ubuntu.com/usn/usn-4954-1",
+          "https://ubuntu.com/security/notices/USN-4954-1",
           "https://www.talosintelligence.com/vulnerability_reports/TALOS-2020-1019"
         ],
         "PublishedDate": "2020-04-01T22:15:00Z",
@@ -1703,7 +1474,7 @@
         "PkgName": "locales",
         "InstalledVersion": "2.31-0ubuntu9.2",
         "Layer": {
-          "DiffID": "sha256:22946c4472b41577517364f9d3846831b6b7063f3518308da7234665fdbf021a"
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-27645",
@@ -1732,14 +1503,54 @@
           "https://sourceware.org/bugzilla/show_bug.cgi?id=27462"
         ],
         "PublishedDate": "2021-02-24T15:15:00Z",
-        "LastModifiedDate": "2021-05-22T03:15:00Z"
+        "LastModifiedDate": "2021-07-06T06:15:00Z"
+      },
+      {
+        "VulnerabilityID": "CVE-2021-3326",
+        "PkgName": "locales",
+        "InstalledVersion": "2.31-0ubuntu9.2",
+        "Layer": {
+          "DiffID": "sha256:beff99694efcce1dbaa51d285e4dc51afabcaab905b795cadc8c6b094363bbc4"
+        },
+        "SeveritySource": "ubuntu",
+        "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2021-3326",
+        "Title": "glibc: Assertion failure in ISO-2022-JP-3 gconv module related to combining characters",
+        "Description": "The iconv function in the GNU C Library (aka glibc or libc6) 2.32 and earlier, when processing invalid input sequences in the ISO-2022-JP-3 encoding, fails an assertion in the code path and aborts the program, potentially resulting in a denial of service.",
+        "Severity": "LOW",
+        "CweIDs": [
+          "CWE-617"
+        ],
+        "CVSS": {
+          "nvd": {
+            "V2Vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P",
+            "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "V2Score": 5,
+            "V3Score": 7.5
+          },
+          "redhat": {
+            "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "V3Score": 7.5
+          }
+        },
+        "References": [
+          "http://www.openwall.com/lists/oss-security/2021/01/28/2",
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3326",
+          "https://linux.oracle.com/cve/CVE-2021-3326.html",
+          "https://linux.oracle.com/errata/ELSA-2021-9344.html",
+          "https://security.netapp.com/advisory/ntap-20210304-0007/",
+          "https://sourceware.org/bugzilla/show_bug.cgi?id=27256",
+          "https://sourceware.org/git/?p=glibc.git;a=commit;h=7d88c6142c6efc160c0ee5e4f85cde382c072888",
+          "https://sourceware.org/pipermail/libc-alpha/2021-January/122058.html"
+        ],
+        "PublishedDate": "2021-01-27T20:15:00Z",
+        "LastModifiedDate": "2021-07-06T06:15:00Z"
       },
       {
         "VulnerabilityID": "CVE-2013-4235",
         "PkgName": "login",
         "InstalledVersion": "1:4.8.1-1ubuntu5.20.04",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2013-4235",
@@ -1758,9 +1569,9 @@
           },
           "redhat": {
             "V2Vector": "AV:L/AC:H/Au:N/C:P/I:P/A:P",
-            "V3Vector": "CVSS:3.0/AV:L/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+            "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:N/I:H/A:N",
             "V2Score": 3.7,
-            "V3Score": 6.7
+            "V3Score": 4.4
           }
         },
         "References": [
@@ -1778,7 +1589,7 @@
         "PkgName": "passwd",
         "InstalledVersion": "1:4.8.1-1ubuntu5.20.04",
         "Layer": {
-          "DiffID": "sha256:ccdbb80308cc5ef43b605ac28fac29c6a597f89f5a169bbedbb8dec29c987439"
+          "DiffID": "sha256:997d812758c2a22775b2d0c139c2caf7f539c1142f9855b620cf1374252c9c15"
         },
         "SeveritySource": "ubuntu",
         "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2013-4235",
@@ -1797,9 +1608,9 @@
           },
           "redhat": {
             "V2Vector": "AV:L/AC:H/Au:N/C:P/I:P/A:P",
-            "V3Vector": "CVSS:3.0/AV:L/AC:H/PR:L/UI:R/S:U/C:H/I:H/A:H",
+            "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:N/I:H/A:N",
             "V2Score": 3.7,
-            "V3Score": 6.7
+            "V3Score": 4.4
           }
         },
         "References": [
