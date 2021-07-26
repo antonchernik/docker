@@ -13,7 +13,7 @@ RUN set -eux; \
 	gosu nobody true
 
 # Default to a PGP keyserver that pgp-happy-eyeballs recognizes, but allow for substitutions locally
-ARG PGP_KEYSERVER=ha.pool.sks-keyservers.net
+ARG PGP_KEYSERVER="ha.pool.sks-keyservers.net hkp://p80.pool.sks-keyservers.net:80 keyserver.ubuntu.com hkp://keyserver.ubuntu.com:80 pgp.mit.edu"
 # If you are building this image locally and are getting `gpg: keyserver receive failed: No data` errors,
 # run the build with a different PGP_KEYSERVER, e.g. docker build --tag rabbitmq:3.8 --build-arg PGP_KEYSERVER=pgpkeys.eu 3.8/ubuntu
 # For context, see https://github.com/docker-library/official-images/issues/4252
@@ -60,6 +60,9 @@ RUN set -eux; \
 	export GNUPGHOME="$(mktemp -d)"; \
 	for key in $OPENSSL_PGP_KEY_IDS; do \
 		gpg --batch --keyserver "$PGP_KEYSERVER" --recv-keys "$key"; \
+		for server in $PGP_KEYSERVER; do \
+                gpg --batch --keyserver "$server" --recv-keys "$key" && break || echo "Trying new server..."; \
+        done; \
 	done; \
 	gpg --batch --verify "$OPENSSL_PATH.tar.gz.asc" "$OPENSSL_PATH.tar.gz"; \
 	gpgconf --kill all; \
