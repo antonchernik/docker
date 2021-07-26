@@ -59,7 +59,6 @@ RUN set -eux; \
 	wget --progress dot:giga --output-document "$OPENSSL_PATH.tar.gz" "$OPENSSL_SOURCE_URL"; \
 	export GNUPGHOME="$(mktemp -d)"; \
 	for key in $OPENSSL_PGP_KEY_IDS; do \
-		gpg --batch --keyserver "$PGP_KEYSERVER" --recv-keys "$key"; \
 		for server in $PGP_KEYSERVER; do \
                 gpg --batch --keyserver "$server" --recv-keys "$key" && break || echo "Trying new server..."; \
         done; \
