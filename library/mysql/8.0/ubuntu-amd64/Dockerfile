@@ -29,11 +29,11 @@ RUN set -ex; \
 # gpg: key 5072E1F5: public key "MySQL Release Engineering <mysql-build@oss.oracle.com>" imported
 	key='A4A9406876FCBD3C456770C88C718D3B5072E1F5'; \
 	export GNUPGHOME="$(mktemp -d)"; \
-	for server in ha.pool.sks-keyservers.net \
+	for server in pgp.mit.edu \
         hkp://p80.pool.sks-keyservers.net:80 \
         keyserver.ubuntu.com \
         hkp://keyserver.ubuntu.com:80 \
-        pgp.mit.edu; do \
+        ha.pool.sks-keyservers.net; do \
         gpg --keyserver "$server" --recv-keys "$key" && break || echo "Trying new server..."; \
     done; \
 	gpg --batch --export "$key" > /etc/apt/trusted.gpg.d/mysql.gpg; \
